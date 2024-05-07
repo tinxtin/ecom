@@ -22,9 +22,22 @@ body {
   font-weight: 400;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+}
+
 .main {
   width: 100%;
   height: 100%;
+  margin-top: 6rem;
 }
 
 .promoBar {
@@ -35,7 +48,7 @@ body {
   width: 100%;
   z-index: 10;
 }
-.promoBar__content {
+.promoBar__container {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
@@ -46,6 +59,55 @@ body {
   margin: 0;
   font-size: 0.75rem;
   line-height: 1.05rem;
+}
+
+.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: fixed;
+  width: 100%;
+  z-index: 11;
+  height: 4rem;
+}
+
+.nav__container {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  height: 4rem;
+}
+.nav__content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.nav__content:first-of-type {
+  justify-content: flex-start;
+}
+.nav__content:last-of-type {
+  justify-content: flex-end;
+}
+.nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.nav__item {
+  margin: 0.25rem 0.5rem;
+  padding: 0;
+  white-space: nowrap;
+}
+.nav__item-link {
+  display: block;
+  color: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+  border-bottom: none;
+  text-transform: uppercase;
+}
+.nav__item-link.active {
+  border-bottom: 1px solid black;
 }
 
 @media only screen and (min-width: 1024px) {
