@@ -35,13 +35,6 @@ a {
 }
 
 button {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.225rem;
-  margin: 0;
-  overflow: visible;
-}
-button[type=button] {
   cursor: pointer;
 }
 
@@ -51,13 +44,6 @@ button[type=button] {
   width: 100%;
   height: 100%;
   padding-top: 4rem;
-}
-
-.btn__link {
-  background-color: transparent;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  border: 0;
-  padding: 0;
 }
 
 .promoBar {
@@ -128,19 +114,13 @@ button[type=button] {
   text-transform: uppercase;
 }
 .nav__item-link.active {
-  border-bottom: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid black;
 }
 .nav__item-btn {
   display: block;
-  font-size: 1rem;
-  font-weight: 400;
   color: inherit;
   border-bottom: none;
   text-transform: uppercase;
-}
-.nav__item-btn:hover {
-  border-bottom: 1px solid;
-  text-decoration: none;
 }
 
 @media only screen and (min-width: 1024px) {
