@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import hero from '../../assets/pepper2.jpg'
 
 
 function Home() {
@@ -28,13 +29,17 @@ function Home() {
         '--hero-height', windowDimensions.height / 100 + 'px',
     )
 
+    document.documentElement.style.setProperty(
+        '--max-hero-height', windowDimensions.width / 185 + 'px',
+    )
+
     return (
         <>
             <section className='home__hero'>
                 <Link to={''} className='home__hero-link'>
                     <div className='home__hero-wrapper'>
-                        <div className='hero__image'>
-                            <img src="https://placehold.co/1440x1440/png" alt=""/>
+                        <div className='home__hero-image'>
+                            <img src={hero} alt=""/>
                         </div>
                     </div>
                 </Link>
