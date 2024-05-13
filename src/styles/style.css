@@ -69,6 +69,12 @@ button[type=button] {
     transition: padding 0.5s ease-in-out;
   }
 }
+@media only screen and (min-width: 1410px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 
 .btn__link {
   background-color: transparent;
@@ -106,6 +112,7 @@ button[type=button] {
 
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: rgb(255, 255, 255);
   position: fixed;
   width: 100%;
   top: 0;
@@ -196,6 +203,11 @@ button[type=button] {
   width: 100%;
   object-fit: cover;
   max-height: calc(var(--max-hero-height, 1vh) * 100);
+}
+
+.featured__products {
+  padding-top: 1rem;
+  transition: none;
 }
 
 

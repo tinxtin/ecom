@@ -41,7 +41,9 @@ function NavBar() {
                 </ul>
             </div>
             <div className='nav__content'>
-                logo
+                <NavRoute to='/'>
+                    Logo
+                </NavRoute>
             </div>
             <div className='nav__content'>
                 <ul className='nav__list'>

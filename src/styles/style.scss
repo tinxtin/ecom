@@ -62,12 +62,17 @@ button[type=button] {
 }
 
 .container {
-	@media only screen and (min-width: 1024px) {
-		margin: 0 auto;
-		padding-left: 0.75rem;
-		padding-right: 0.75rem;
-		transition: padding 0.5s ease-in-out;
-	}
+    @media only screen and (min-width: 1024px) {
+      margin: 0 auto;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      transition: padding 0.5s ease-in-out;
+    }
+
+    @media only screen and (min-width: 1410px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
 
 .btn__link {
@@ -108,6 +113,7 @@ button[type=button] {
 
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: rgb(255, 255, 255);
   position: fixed;
   width: 100%;
   top: 0;
@@ -217,6 +223,15 @@ button[type=button] {
             }
         }
     }
+}
+
+.featured {
+
+
+	&__products {
+		padding-top: 1rem;
+		transition: none;
+	}
 }
 
 /*# sourceMappingURL=style.scss.map */

@@ -25,17 +25,11 @@ function Home() {
     }, [])
 
 
-    document.documentElement.style.setProperty(
-        '--hero-height', windowDimensions.height / 100 + 'px',
-    )
-
-    document.documentElement.style.setProperty(
-        '--max-hero-height', windowDimensions.width / 185 + 'px',
-    )
+    // const featureProducts = 
 
     return (
         <>
-            <section className='home__hero'>
+            <section className='home__hero' style={{top: '-4rem', '--hero-height': windowDimensions.height / 100 + 'px', '--max-hero-height': windowDimensions.width / 200 + 'px'}}>
                 <Link to={''} className='home__hero-link'>
                     <div className='home__hero-wrapper'>
                         <div className='home__hero-image'>
@@ -43,6 +37,15 @@ function Home() {
                         </div>
                     </div>
                 </Link>
+            </section>
+            <section className='home__collections'>
+                <div className='featured__products'>
+                    <ul className='featured__products-list container'>
+                        <div className='glider__viewport'>
+
+                        </div>
+                    </ul>
+                </div>
             </section>
         </>
     )
