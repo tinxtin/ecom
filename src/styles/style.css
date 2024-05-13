@@ -1,5 +1,7 @@
 :root {
   --review-light-gray: $light-gray;
+  --hero-height: 0px;
+  --max-hero-height: 6.75px;
 }
 
 * {
@@ -34,6 +36,11 @@ a {
   color: rgb(0, 0, 0);
 }
 
+img {
+  border-style: none;
+  max-width: 100%;
+}
+
 button {
   font-family: inherit;
   font-size: 100%;
@@ -41,6 +48,7 @@ button {
   margin: 0;
   overflow: visible;
 }
+
 button[type=button] {
   cursor: pointer;
 }
@@ -51,6 +59,21 @@ button[type=button] {
   width: 100%;
   height: 100%;
   padding-top: 4rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    margin: 0 auto;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    transition: padding 0.5s ease-in-out;
+  }
+}
+@media only screen and (min-width: 1410px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .btn__link {
@@ -80,11 +103,19 @@ button[type=button] {
   font-size: 0.75rem;
   line-height: 1.05rem;
 }
+@media only screen and (min-width: 1024px) {
+  .promoBar__text p {
+    font-size: 0.875rem;
+    line-height: 1.225rem;
+  }
+}
 
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: rgb(255, 255, 255);
   position: fixed;
   width: 100%;
+  top: 0;
   z-index: 11;
   height: 4rem;
 }
@@ -143,17 +174,42 @@ button[type=button] {
   text-decoration: none;
 }
 
-@media only screen and (min-width: 1024px) {
-  .container {
-    margin: 0 auto;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    transition: padding 0.5s ease-in-out;
-  }
-  .promoBar__text p {
-    font-size: 0.875rem;
-    line-height: 1.225rem;
-  }
+.home__hero {
+  position: relative;
+  overflow: hidden;
+  height: calc(var(--hero-height, 1vh) * 100);
+  max-height: calc(var(--max-hero-height, 1vh) * 100);
 }
+.home__hero-wrapper {
+  position: relative;
+}
+.home__hero-wrapper::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.home__hero-image {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.home__hero-image img {
+  display: block;
+  min-height: 1px;
+  width: 100%;
+  object-fit: cover;
+  max-height: calc(var(--max-hero-height, 1vh) * 100);
+}
+
+.featured__products {
+  padding-top: 1rem;
+  transition: none;
+}
+
+
 
 /*# sourceMappingURL=style.css.map */

@@ -25,7 +25,7 @@ function App() {
       <main className='main' style={{marginTop: promoHeight}}>
         <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/collection/all' element={<Shop/>}/>
+            <Route path='/collection/all' element={<Shop/>} />
         </Routes>
       </main>
     </>
