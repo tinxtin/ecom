@@ -1,3 +1,5 @@
+
+
 :root {
   --review-light-gray: $light-gray;
   --hero-height: 0px;
@@ -227,11 +229,23 @@ button[type=button] {
 
 .featured {
 
-
 	&__products {
 		padding-top: 1rem;
 		transition: none;
 	}
+}
+
+.swiper {
+
+  &__viewport {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+  }
+
+  &__draggable {
+    cursor: grab;
+  }
 }
 
 /*# sourceMappingURL=style.scss.map */

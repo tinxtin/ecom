@@ -1,5 +1,5 @@
 
-function Shop() {
+export const Shop = () => {
 
     return (
         <div>
@@ -7,5 +7,3 @@ function Shop() {
         </div>
     )
 }
-
-export default Shop;

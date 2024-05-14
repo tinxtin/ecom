@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import hero from '../../assets/pepper2.jpg'
+import { Swiper, SwiperSlide } from '../../components/products/swiper';
 
-
-function Home() {
+export const Home = () => {
 
     function getWindowDimensions() {
         const { innerWidth: width, innerHeight: height } = window;
@@ -25,8 +25,6 @@ function Home() {
     }, [])
 
 
-    // const featureProducts = 
-
     return (
         <>
             <section className='home__hero' style={{top: '-4rem', '--hero-height': windowDimensions.height / 100 + 'px', '--max-hero-height': windowDimensions.width / 200 + 'px'}}>
@@ -41,8 +39,17 @@ function Home() {
             <section className='home__collections'>
                 <div className='featured__products'>
                     <ul className='featured__products-list container'>
-                        <div className='glider__viewport'>
-
+                        <div className='swiper__viewport swiper__draggable'>
+                            <Swiper
+                            slidesPerView={4}
+                            breakpoints={{ 768: { slidesPerView: 4 } }}
+                            >
+                            <SwiperSlide>Slide 1</SwiperSlide>
+                            <SwiperSlide>Slide 2</SwiperSlide>
+                            <SwiperSlide>Slide 3</SwiperSlide>
+                            <SwiperSlide>Slide 4</SwiperSlide>
+                            <SwiperSlide>Slide 5</SwiperSlide>
+                            </Swiper>
                         </div>
                     </ul>
                 </div>
@@ -50,5 +57,3 @@ function Home() {
         </>
     )
 }
-
-export default Home;

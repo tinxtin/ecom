@@ -210,6 +210,15 @@ button[type=button] {
   transition: none;
 }
 
+.swiper__viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.swiper__draggable {
+  cursor: grab;
+}
+
 
 
 /*# sourceMappingURL=style.css.map */
