@@ -1,6 +1,6 @@
 import { useMatch, useResolvedPath, NavLink } from 'react-router-dom';
 
-function NavBar() {
+export const NavBar = () => {
 
     function NavRoute({ to, children}) {
     
@@ -63,5 +63,3 @@ function NavBar() {
         </nav>
     )
 }
-
-export default NavBar;

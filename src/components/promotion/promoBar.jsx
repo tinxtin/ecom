@@ -1,5 +1,5 @@
 
-function PromoBar() {
+export const PromoBar = () => {
 
     return (
         <div className='promoBar__container container'>
@@ -11,6 +11,3 @@ function PromoBar() {
         </div>
     )
 }
-
-
-export default PromoBar;
