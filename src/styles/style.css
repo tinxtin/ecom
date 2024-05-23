@@ -228,6 +228,7 @@ button[type=button] {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-top: 0.75rem;
 }
 .featured__products-list-item .item__details {
   display: flex;
@@ -240,9 +241,28 @@ button[type=button] {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-.featured__products-list-item .item__info {
-  padding-top: 0.75rem;
+.featured__products-list-item .item__desc-wrapper {
+  margin: 0;
+  position: relative;
 }
+.featured__products-list-item .item__desc-wrapper .item__desc-text {
+  margin: 0;
+  color: rgb(52, 58, 64);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.featured__products-list-item .item__desc .item__price {
+  margin: 0.25rem 0;
+  color: #000;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+@media only screen and (min-width: 768px) {
+  .featured__products-list-item .item__desc .item__price {
+    white-space: nowrap;
+  }
+}
+
 .swiper__viewport {
   overflow: hidden;
   position: relative;

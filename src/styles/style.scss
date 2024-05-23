@@ -257,6 +257,7 @@ button[type=button] {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            padding-top: .75rem;
           }
 
           &__details {
@@ -272,15 +273,29 @@ button[type=button] {
             }
           }
 
-          &__link {
+          &__desc {
 
-          }
-        
-          &__info {
-            padding-top: .75rem;
-        
-            &-top {
-              
+            &-wrapper {
+              margin: 0;
+              position: relative;
+
+              .item__desc-text {
+                margin: 0;
+                color: rgb(52, 58, 64);
+                font-size: .875rem;
+                line-height: 1.25rem;
+              }
+            }
+
+            .item__price {
+              margin: .25rem 0;
+              color: #000;
+              font-size: .875rem;
+              line-height: 1.25rem;
+
+              @media only screen and (min-width: 768px) {
+                white-space: nowrap;
+              }
             }
           }
         }

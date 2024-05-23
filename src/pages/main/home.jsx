@@ -44,9 +44,9 @@ export const Home = () => {
                                         { item.name }
                                     </h3>
                                 </div>
-                                <div className='item__options'>
-                                    <div className='item__desc'>
-                                        <p className='item__desc-wrapper'>
+                                <div className='item__desc'>
+                                    <div className='item__desc-wrapper'>
+                                        <p className='item__desc-text'>
                                             { item.desc }
                                         </p>
                                     </div>
