@@ -1,4 +1,4 @@
-import { useImperativeHandle, useEffect, useRef, forwardRef } from "react";
+import { useEffect, useRef } from "react";
 import { register } from 'swiper/element/bundle';
 
 export const Swiper = (props) => {
@@ -9,16 +9,14 @@ export const Swiper = (props) => {
 	useEffect(() => {
 		register();
 
-		const slideParams = {
-			...rest
-		};
+		const slideParams = { ...rest };
 
 		Object.assign(swiperRef.current, slideParams);
 		swiperRef.current.initialize();
 	}, [])
 
 	return (
-		<swiper-container ref={swiperRef} init='false'>
+		<swiper-container ref={swiperRef} init='false' class='swiper__slider'>
 			{ children }
 		</swiper-container>
 	)
@@ -26,10 +24,7 @@ export const Swiper = (props) => {
 
 export const SwiperSlide = (props) => {
 
-	const {
-		children,
-		...rest
-	  } = props;
+	const { children, ...rest } = props;
 	
 	  return (
 		<swiper-slide {...rest}>

@@ -230,8 +230,62 @@ button[type=button] {
 .featured {
 
 	&__products {
-		padding-top: 1rem;
 		transition: none;
+
+    &-list {
+      padding-top: 1rem;
+
+      &-item {
+        padding-bottom: 0;
+        height: 100%;
+        margin: 0 .75em !important;
+        // min-width: calc(85% - .75rem);
+        // width: calc(100% - .75rem);
+        transition: margin .4s ease-in-out;
+
+        .featured__item {
+          display: inline-block;
+          font-size: 1rem;
+          transition: padding .4s ease-in-out;
+          vertical-align: top;
+        }
+
+        .item {
+
+          &__info {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          &__details {
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row nowrap;
+
+            .item__title {
+              margin: 0;
+              color: rgb(0, 0, 0);
+              font-size: .875rem;
+              line-height: 1.25rem;
+            }
+          }
+
+          &__link {
+
+          }
+        
+          &__info {
+            padding-top: .75rem;
+        
+            &-top {
+              
+            }
+          }
+        }
+      }
+    }
 	}
 }
 
@@ -240,11 +294,11 @@ button[type=button] {
   &__viewport {
     overflow: hidden;
     position: relative;
-    height: 100%;
   }
 
   &__draggable {
     cursor: grab;
+    user-select: none;
   }
 }
 
