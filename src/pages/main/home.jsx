@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import hero from '../../assets/pepper2.jpg'
-import { Swiper, SwiperSlide } from '../../components/products/swiper';
-import { Collections } from '../../utils/stock/all'
+import { Swiper } from '../../components/carousel/swiper';
+import { featuredProducts } from '../../components/carousel/featured';
 
 export const Home = () => {
 
@@ -24,48 +24,6 @@ export const Home = () => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize)
     }, [])
-
-    const featuredProducts = Collections.all.feature.map((item, i) => {
-        return (
-            <SwiperSlide>
-                <li className='featured__products-list-item'>
-                    <div className='featured__item'>
-                        <div className='item__image-container'>
-                            <Link className='item__link'>
-                                <div className='item__wrapper'>
-                                    <img src="https://placehold.co/600x400" alt="" className='item__image'/>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className='item__info'>
-                            <div className='item__info-top'>
-                                <div className='item__details'>
-                                    <h3 className='item__title'>
-                                        { item.name }
-                                    </h3>
-                                </div>
-                                <div className='item__desc'>
-                                    <div className='item__desc-wrapper'>
-                                        <p className='item__desc-text'>
-                                            { item.desc }
-                                        </p>
-                                    </div>
-                                    <p className='item__price'>
-                                        <span className='item__price-current'>
-                                            { item.price }
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className='item__info-bottom'>
-                                <button>test</button>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </SwiperSlide>
-        )
-    })
 
     return (
         <>

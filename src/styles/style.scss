@@ -49,6 +49,8 @@ button {
   line-height: 1.225rem;
   margin: 0;
   overflow: visible;
+  text-transform: none;
+  overflow: visible;
 }
 
 button[type=button] {
@@ -234,7 +236,7 @@ button[type=button] {
 
     &-list {
       padding-top: 1rem;
-
+      
       &-item {
         padding-bottom: 0;
         height: 100%;
@@ -314,6 +316,24 @@ button[type=button] {
   &__draggable {
     cursor: grab;
     user-select: none;
+  }
+}
+
+.btn {
+  border: none;
+  border-radius: 0;
+  appearance: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.025em;
+  padding: .5rem 1rem;
+  min-height: 2.5rem;
+  transition: font-size .4s ease-in-out;
+
+  &__fullsize {
+    width: 100%;
+    min-width: 100% !important;
   }
 }
 
