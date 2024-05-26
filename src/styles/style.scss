@@ -49,6 +49,8 @@ button {
   line-height: 1.225rem;
   margin: 0;
   overflow: visible;
+  text-transform: none;
+  overflow: visible;
 }
 
 button[type=button] {
@@ -234,7 +236,7 @@ button[type=button] {
 
     &-list {
       padding-top: 1rem;
-
+      
       &-item {
         padding-bottom: 0;
         height: 100%;
@@ -257,6 +259,7 @@ button[type=button] {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            padding-top: .75rem;
           }
 
           &__details {
@@ -272,15 +275,29 @@ button[type=button] {
             }
           }
 
-          &__link {
+          &__desc {
 
-          }
-        
-          &__info {
-            padding-top: .75rem;
-        
-            &-top {
-              
+            &-wrapper {
+              margin: 0;
+              position: relative;
+
+              .item__desc-text {
+                margin: 0;
+                color: rgb(52, 58, 64);
+                font-size: .875rem;
+                line-height: 1.25rem;
+              }
+            }
+
+            .item__price {
+              margin: .25rem 0;
+              color: #000;
+              font-size: .875rem;
+              line-height: 1.25rem;
+
+              @media only screen and (min-width: 768px) {
+                white-space: nowrap;
+              }
             }
           }
         }
@@ -299,6 +316,24 @@ button[type=button] {
   &__draggable {
     cursor: grab;
     user-select: none;
+  }
+}
+
+.btn {
+  border: none;
+  border-radius: 0;
+  appearance: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.025em;
+  padding: .5rem 1rem;
+  min-height: 2.5rem;
+  transition: font-size .4s ease-in-out;
+
+  &__fullsize {
+    width: 100%;
+    min-width: 100% !important;
   }
 }
 

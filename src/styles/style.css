@@ -47,6 +47,8 @@ button {
   line-height: 1.225rem;
   margin: 0;
   overflow: visible;
+  text-transform: none;
+  overflow: visible;
 }
 
 button[type=button] {
@@ -228,6 +230,7 @@ button[type=button] {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-top: 0.75rem;
 }
 .featured__products-list-item .item__details {
   display: flex;
@@ -240,9 +243,28 @@ button[type=button] {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-.featured__products-list-item .item__info {
-  padding-top: 0.75rem;
+.featured__products-list-item .item__desc-wrapper {
+  margin: 0;
+  position: relative;
 }
+.featured__products-list-item .item__desc-wrapper .item__desc-text {
+  margin: 0;
+  color: rgb(52, 58, 64);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.featured__products-list-item .item__desc .item__price {
+  margin: 0.25rem 0;
+  color: #000;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+@media only screen and (min-width: 768px) {
+  .featured__products-list-item .item__desc .item__price {
+    white-space: nowrap;
+  }
+}
+
 .swiper__viewport {
   overflow: hidden;
   position: relative;
@@ -250,6 +272,23 @@ button[type=button] {
 .swiper__draggable {
   cursor: grab;
   user-select: none;
+}
+
+.btn {
+  border: none;
+  border-radius: 0;
+  appearance: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.025em;
+  padding: 0.5rem 1rem;
+  min-height: 2.5rem;
+  transition: font-size 0.4s ease-in-out;
+}
+.btn__fullsize {
+  width: 100%;
+  min-width: 100% !important;
 }
 
 
