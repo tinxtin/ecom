@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import hero from '../../assets/pepper2.jpg'
 import { Swiper } from '../../components/carousel/swiper';
-import { featuredProducts } from '../../components/carousel/featured';
+import { FeaturedProducts } from '../../components/carousel/featured';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
+import { CustomCards } from '../../components/collection/card';
+import { Collections } from '../../utils/stock/all';
 
 export const Home = () => {
 
@@ -37,7 +39,7 @@ export const Home = () => {
                     </div>
                 </Link>
             </section>
-            <section className='home__collections'>
+            <section className='home__carousel'>
                 <div className='featured__products'>
                     <ul className='featured__products-list container'>
                         <div className='swiper__viewport swiper__draggable'>
@@ -46,6 +48,7 @@ export const Home = () => {
                             slidesPerView={4}
                             breakpoints={{ 768: { slidesPerView: 4 } }}
                             navigation={true}
+                            spaceBetween={12}
                             pagination={{ clickable: true }}
                             injectStyles={[`
                                 .swiper-button-next,
@@ -54,7 +57,6 @@ export const Home = () => {
                                     color: rgb(0, 0, 0);
                                     width: 1.1875em;
                                     height: 1.125em;
-                                    margin: 0 .5rem;
                                 }
 
                                 .swiper-button-next svg,
@@ -74,10 +76,15 @@ export const Home = () => {
                                 }
                             `]}
                             >
-                            { featuredProducts }
+                            <FeaturedProducts features={Collections.all.feature}/>
                             </Swiper>
                         </div>
                     </ul>
+                </div>
+            </section>
+            <section className='home__collection'>
+                <div className='home__collection-grid container'>
+                    <CustomCards shop={Collections.all.shop}/>
                 </div>
             </section>
         </>

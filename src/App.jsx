@@ -3,7 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import { PromoBar } from './components/promotion/promoBar';
 import { NavBar } from './components/navigation/navbar';
 import { Home } from './pages/main/home';
-import { Shop } from './pages/collections/all';
+import { Shop } from './pages/shop/all';
 
 function App() {
  
