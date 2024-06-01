@@ -1,11 +1,11 @@
 import { SwiperSlide } from './swiper';
 import { Link } from 'react-router-dom';
-import { Collections } from '../../utils/stock/all';
 import { ActionBtn } from '../action/product-btn';
 
-export const featuredProducts = Collections.all.feature.map((item, i) => {
-    return (
-        <SwiperSlide key={i}>
+export const FeaturedProducts = ({ features }) => {
+    return features.map(( item, i ) => {
+        return (
+            <SwiperSlide key={i}>
             <li className='featured__products-list-item'>
                 <div className='featured__item'>
                     <div className='item__image-container'>
@@ -44,5 +44,6 @@ export const featuredProducts = Collections.all.feature.map((item, i) => {
                 </div>
             </li>
         </SwiperSlide>
-    )
-})
+        )
+    })
+}

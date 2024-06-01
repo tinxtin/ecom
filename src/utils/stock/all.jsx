@@ -31,6 +31,25 @@ export const Collections = {
                 price: 5.00,
                 inStock: true,
             },
+        ],
+
+        shop: [
+            {
+                category: 'skincare',
+                img: '',
+            },
+            {
+                category: 'skincare',
+                img: '',
+            },
+            {
+                category: 'skincare',
+                img: '',
+            },
+            {
+                category: 'skincare',
+                img: '',
+            },
         ]
     }
 }   
