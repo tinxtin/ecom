@@ -263,6 +263,7 @@ button[type=button] {
   color: rgb(0, 0, 0);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  text-transform: capitalize;
 }
 .featured__products-list-item .item__desc-wrapper {
   margin: 0;
@@ -273,6 +274,7 @@ button[type=button] {
   color: rgb(52, 58, 64);
   font-size: 0.875rem;
   line-height: 1.25rem;
+  text-transform: capitalize;
 }
 .featured__products-list-item .item__desc .item__price {
   margin: 0.25rem 0;
@@ -350,6 +352,9 @@ button[type=button] {
   align-items: center;
   justify-content: space-between;
   position: relative;
+}
+.card__product-title {
+  text-transform: capitalize;
 }
 @media only screen and (min-width: 821px) {
   .card__product-title {

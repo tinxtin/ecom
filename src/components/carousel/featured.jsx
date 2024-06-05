@@ -1,9 +1,20 @@
 import { SwiperSlide } from './swiper';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ActionBtn } from '../action/product-btn';
 
-export const FeaturedProducts = ({ features }) => {
-    return features.map(( item, i ) => {
+export const FeaturedProducts = ({ collections }) => {
+
+    let featured = []
+    for (const value of Object.values(collections)) {
+        value.forEach(item => {
+            if (item.inFeature === true) {
+                featured.push(item)
+            }
+        })
+    }
+
+    return featured.map(( product, i ) => {
         return (
             <SwiperSlide key={i}>
             <li className='featured__products-list-item'>
@@ -19,25 +30,25 @@ export const FeaturedProducts = ({ features }) => {
                         <div className='item__info-top'>
                             <div className='item__details'>
                                 <h3 className='item__title'>
-                                    { item.name }
+                                    { product.name }
                                 </h3>
                             </div>
                             <div className='item__desc'>
                                 <div className='item__desc-wrapper'>
                                     <p className='item__desc-text'>
-                                        { item.desc }
+                                        { product.desc }
                                     </p>
                                 </div>
                                 <p className='item__price'>
                                     <span className='item__price-current'>
-                                        £{ item.price }
+                                        £{ product.price }
                                     </span>
                                 </p>
                             </div>
                         </div>
                         <div className='item__info-bottom'>
                             <div className='item__action'>
-                                <ActionBtn className='item__quick-add' name='add' inStock={item.inStock}/>
+                                <ActionBtn className='item__quick-add' name='add' qty={product.qty}/>
                             </div>
                         </div>
                     </div>
