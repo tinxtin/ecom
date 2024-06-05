@@ -76,7 +76,7 @@ export const Home = () => {
                                 }
                             `]}
                             >
-                            <FeaturedProducts features={Collections.all.feature}/>
+                            <FeaturedProducts collections={Collections}/>
                             </Swiper>
                         </div>
                     </ul>
@@ -84,7 +84,7 @@ export const Home = () => {
             </section>
             <section className='home__collection'>
                 <div className='home__collection-grid container'>
-                    <CustomCards shop={Collections.all.shop}/>
+                    <CustomCards collections={Collections}/>
                 </div>
             </section>
         </>

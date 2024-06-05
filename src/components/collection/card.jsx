@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 
-export const CustomCards = ({ shop }) => {
-    return shop.map(( item, i) => {
+export const CustomCards = ({ collections }) => {
+
+    return Object.keys(collections).map(( category, i) => {
         return (
             <div className='card__container' key={i}>
                 <article className='card__product'>
@@ -16,7 +17,7 @@ export const CustomCards = ({ shop }) => {
                     <Link className='card__product-link'>
                         <div className='card__product-title-wrapper'>
                             <h2 className='card__product-title'>
-                                { item.category }
+                                { category }
                             </h2>
                         </div>
                     </Link>

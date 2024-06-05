@@ -1,55 +1,117 @@
 export const Collections = {
-    all : {
-        feature: [
-            {
-                name: 'test',
-                desc: 'placeholder1',
-                price: 1.00,
-                inStock: true,
-            }, 
-            {
-                name: 'test2',
-                desc: 'placeholder2',
-                price: 2.00,
-                inStock: false,
-            },
-            {
-                name: 'test3',
-                desc: 'placeholder3',
-                price: 3.00,
-                inStock: false,
-            },
-            {
-                name: 'test4',
-                desc: 'placeholder4',
-                price: 4.00,
-                inStock: true,
-            },
-            {
-                name: 'test5',
-                desc: 'placeholder5',
-                price: 5.00,
-                inStock: true,
-            },
-        ],
+    
+    makeup: [
+        {
+            name: 'makeup1',
+            desc: 'placeholder',
+            price: 1.00,
+            inFeature: true,
+            qty: 1,
+        }, 
+        {
+            name: 'makeup2',
+            desc: 'placeholder',
+            price: 2.00,
+            inFeature: true,
+            qty: 0,
+        },
+        {
+            name: 'makeup3',
+            desc: 'placeholder',
+            price: 3.00,
+            inFeature: true,
+            qty: 1,
+        },
+        {
+            name: 'makeup4',
+            desc: 'placeholder',
+            price: 4.00,
+            inFeature: false,
+            qty: 1,
+        },
+        {
+            name: 'makeup5',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: false,
+            qty: 0,
+        },
+    ],
 
-        shop: [
-            {
-                category: 'skincare',
-                img: '',
-            },
-            {
-                category: 'skincare',
-                img: '',
-            },
-            {
-                category: 'skincare',
-                img: '',
-            },
-            {
-                category: 'skincare',
-                img: '',
-            },
-        ]
-    }
+    skincare: [
+        {
+            name: 'skincare1',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: true,
+            qty: 1,
+        },
+        {
+            name: 'skincare2',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: true,
+            qty: 0,
+        },
+        {
+            name: 'skincare3',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: false,
+            qty: 1,
+        },
+        {
+            name: 'skincare4',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: false,
+            qty: 1,
+        },
+        {
+            name: 'skincare5',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: false,
+            qty: 1,
+        },
+    ],
+
+    body: [
+        {
+            name: 'body1',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: false,
+            qty: 1,
+        },
+        {
+            name: 'body2',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: true,
+            qty: 1,
+        },
+        {
+            name: 'body3',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: false,
+            qty: 1,
+        },
+        {
+            name: 'body4',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: false,
+            qty: 1,
+        },
+        {
+            name: 'body5',
+            desc: 'placeholder',
+            price: 5.00,
+            inFeature: false,
+            qty: 1,
+        },
+    ]
+
 }   
