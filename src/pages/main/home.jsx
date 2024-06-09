@@ -85,6 +85,7 @@ export const Home = () => {
             <section className='home__collection'>
                 <div className='home__collection-grid container'>
                     <CustomCards collections={Collections}/>
+                    <button></button>
                 </div>
             </section>
         </>

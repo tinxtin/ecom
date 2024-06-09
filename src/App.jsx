@@ -4,6 +4,7 @@ import { PromoBar } from './components/promotion/promoBar';
 import { NavBar } from './components/navigation/navbar';
 import { Home } from './pages/main/home';
 import { Shop } from './pages/shop/all';
+import { NavFooter } from './components/navigation/footerbar';
 
 function App() {
  
@@ -28,6 +29,9 @@ function App() {
             <Route path='/collection/all' element={<Shop/>} />
         </Routes>
       </main>
+      <footer className='footer' style={{marginTop: '5rem'}}>
+        <NavFooter/>
+      </footer>
     </>
   )
 }
