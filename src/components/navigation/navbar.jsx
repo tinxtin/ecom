@@ -1,17 +1,6 @@
 import { useMatch, useResolvedPath, NavLink } from 'react-router-dom';
-
+import { NavRoute } from '../route/navroute';
 export const NavBar = () => {
-
-    function NavRoute({ to, children}) {
-    
-        return (
-            <li className='nav__item' >
-                <NavLink to={to} className={({ isActive }) => isActive ? 'nav__item-link active': 'nav__item-link'}>
-                    { children }
-                </NavLink>
-            </li>
-        )
-    }
 
     function NavModal({ children }) {
         
@@ -32,12 +21,16 @@ export const NavBar = () => {
         <nav className='nav__container container'>
             <div className='nav__content'>
                 <ul className='nav__list'>
-                    <NavRoute to='/collection/all'>
-                        Shop
-                    </NavRoute>
-                    <NavRoute to='/about'>
-                        About
-                    </NavRoute>
+                    <li className='nav__item'>
+                        <NavRoute to='/collection/all' className={({ isActive }) => isActive ? 'nav__item-link active': 'nav__item-link'}>
+                            Shop
+                        </NavRoute>
+                    </li>
+                    <li className='nav__item'>
+                        <NavRoute to='/about' className={({ isActive }) => isActive ? 'nav__item-link active': 'nav__item-link'}>
+                            About
+                        </NavRoute>
+                    </li>
                 </ul>
             </div>
             <div className='nav__content'>
