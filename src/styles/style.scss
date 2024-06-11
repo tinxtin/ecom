@@ -65,6 +65,11 @@ nav {
   letter-spacing: .001875rem;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin: 0;
+}
+
 .main {
   display: block;
   position: relative;
@@ -498,6 +503,13 @@ nav {
     display: flex;
     flex-basis: 50%;
 
+    &-privacy {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      position: relative;
+    }
+
     .footer__form-container {
       width: 100%;
     }
@@ -527,7 +539,6 @@ nav {
       letter-spacing: .0025rem;
       color: rgb(0, 0, 0);
       text-transform: uppercase;
-      margin: 0;
       
       @media only screen and (min-width: 768px) {
         margin-bottom: 1rem;
@@ -545,11 +556,22 @@ nav {
       text-transform: none;
     }
   }
+
+  &__input {
+
+    &-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      position: relative;
+      width: 100%;
+    }
+  }
 }
 
 .form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   box-sizing: border-box;
   width: 100%;
   overflow: visible;
@@ -584,14 +606,6 @@ nav {
       background-color: rgb(255, 255, 255);
       border: 1px solid rgb(232, 232, 232);
       height: 2rem;
-
-      &__container {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        position: relative;
-        width: 100%;
-      }
     }
 
     .newsletter {
@@ -629,7 +643,6 @@ nav {
         }
       }
 
-
       &__input {
         width: 100%;
         border-bottom-color: rgb(0, 0, 0) !important;
@@ -638,6 +651,42 @@ nav {
 
         &:focus {
           outline: none;
+        }
+      }
+
+      &__privacy {
+          font-size: 14px;
+          font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-weight: 400;
+          line-height: 1.05rem !important;
+          margin: 0;
+
+        &-container {
+          display: flex;
+          justify-content: flex-start;
+          padding: 0px 0px 10px;
+          position: relative;
+          flex: 1 0 0px;
+          margin: 0;
+        }
+
+        &-content {
+          width: 100%;
+        }
+
+        &-text {
+          font-size: 12px;
+          font-family: 'Apercu', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          font-weight: 400;
+          display: inline;
+          color: rgb(102,102,102);
+        }
+
+        &-link {
+          font-weight: 400;
+          color: rgb(102,102,102);
+          text-decoration: underline;
+          border-bottom: none;
         }
       }
     }
