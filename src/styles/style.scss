@@ -30,6 +30,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  line-height: 1.225rem;
 }
 
 a {
@@ -44,13 +45,10 @@ img {
 }
 
 button {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.225rem;
-  margin: 0;
-  overflow: visible;
-  text-transform: none;
-  overflow: visible;
+  font-family: Apercu, Gill Sans, sans-serif;
+    font-weight: 400;
+    font-size: .875rem;
+    letter-spacing: .001875rem;
 }
 
 button[type=button] {
@@ -746,6 +744,7 @@ fieldset {
       justify-content: center;
       align-items: center;
       margin-left: auto;
+      padding-top: .1875rem;
     }
 
     &-item {
@@ -784,10 +783,15 @@ fieldset {
       text-align: center;
       padding-top: .625rem;
       padding-bottom: .625rem;
+      line-height: 140%;
       cursor: pointer;
       outline: none;
       -webkit-appearance: none;
       }
+
+    &-btn {
+      display: inline-flex;
+    }
   }
 }
 

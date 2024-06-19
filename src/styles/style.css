@@ -28,6 +28,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  line-height: 1.225rem;
 }
 
 a {
@@ -42,13 +43,10 @@ img {
 }
 
 button {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.225rem;
-  margin: 0;
-  overflow: visible;
-  text-transform: none;
-  overflow: visible;
+  font-family: Apercu, Gill Sans, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  letter-spacing: 0.001875rem;
 }
 
 button[type=button] {
@@ -646,6 +644,7 @@ fieldset {
   justify-content: center;
   align-items: center;
   margin-left: auto;
+  padding-top: 0.1875rem;
 }
 .collection__filter-item {
   color: rgb(102, 102, 102);
@@ -679,9 +678,13 @@ fieldset {
   text-align: center;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
+  line-height: 140%;
   cursor: pointer;
   outline: none;
   -webkit-appearance: none;
+}
+.collection__filter-btn {
+  display: inline-flex;
 }
 
 
