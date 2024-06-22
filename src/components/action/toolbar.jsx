@@ -18,11 +18,26 @@ export const Toolbar = () => {
             ]
         },
         Sort: {
-            'feature': 'manual',
-            'Best selling': 'best-selling',
-            'Price low to high': 'price-ascending',
-            'Price high to low': 'price-descending',
-            'Newest first': 'created-descending',
+            'Featured': {
+                value: 'manual',
+                width: 104,
+            },
+            'Best selling': {
+                value: 'best-selling',
+                width: 120,
+            },
+            'Price low to high': {
+                value: 'price-ascending',
+                width: 150,
+            },
+            'Price high to low': {
+                value:'price-descending',
+                width: 150,
+            },
+            'Newest first':{
+                value: 'created-descending',
+                width: 120,
+            },
         }
     }
 
@@ -57,6 +72,7 @@ export const Toolbar = () => {
         //     width: '',
         //     sort: ''
         // });
+        const [selectWidth, setSelectWidth] = useState(null);
 
         return (
             <>
@@ -67,11 +83,17 @@ export const Toolbar = () => {
                     <span style={{margin: '0 .125rem'}}>(</span>
                     <fieldset>
                         <legend className='screenreader'>View Options</legend>
-                        <select aria-label='View Options' style={{textAlign: 'right', marginLeft: '-47px', width: '104px'}} 
-                        className='collection__filter-select btn__text'>
+                        <select aria-label='View Options' style={{textAlign: 'right', marginLeft: '-47px', width: selectWidth}} 
+                        className='collection__filter-select btn__text' onChange={(e) => {
+                            Object.values(sub).forEach((item) => {
+                                if (e.target.value === item.value) {
+                                    setSelectWidth(item.width)
+                                }
+                            })
+                        }}>
                             {Object.entries(sub).map(([item, value], i) => {
                                 return (
-                                    <option className='filter__option' key={i} value={value}>
+                                    <option className='filter__option' key={i} value={value.value}>
                                         { item }
                                     </option>
                                 )
