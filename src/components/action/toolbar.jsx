@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef  } from 'react';
+import ReactModal from 'react-modal';
+ReactModal.setAppElement('#root');
 
 export const Toolbar = () => {
 
@@ -41,26 +43,92 @@ export const Toolbar = () => {
         }
     }
 
-    function FilterModal() {
-        console.log('test')
-    }
 
-    function FilterTool() {
+    function FilterTool({ tool, sub }) {
+
+        const [activeFilter, setActiveFilter] = useState(0)
+        const [modalIsOpen, setIsOpen] = useState(false);
+
+        function openModal() {
+            setIsOpen(true);
+        }
+
+        function closeModal() {
+            setIsOpen(false);
+        }
 
         return (
             <>
-                <span className='collection__filter-item-title' onClick={FilterModal}>
+                <span className='collection__filter-item-title' onClick={openModal}>
                     Filter
                 </span>
                 <span className='collection__filter-wrapper'>
-                    <span className='collection__filter-btn' onClick={FilterModal}>
+                    <span className='collection__filter-btn' onClick={openModal}>
                         <span style={{margin: '0 .125rem'}}>(</span>
                         <button type='button' className='collection__filter-button btn__text'>
-                            0
+                            { activeFilter }
                         </button>
                         <span style={{margin: '0 .125rem'}}>)</span>
                     </span>
                 </span>
+                <ReactModal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    contentLabel='Modal'
+                    style={{
+                        overlay: {
+                            backgroundColor: 'rgba(0, 0, 0, .35)',
+                            zIndex: '100'
+                        },
+                        content: {
+                            top: '50%',
+                            left: '50%',
+                            right: 'auto',
+                            bottom: 'auto',
+                            borderRadius: 'none',
+                            marginRight: '-50%',
+                            zIndex: '101',
+                            transform: 'translate(-50%, -50%)',
+                        }
+                    }}  
+                >
+                    <header className='collection__modal-header'>
+                        <h3 className='collection__modal-title'>
+                            { tool }
+                        </h3>
+                        <button className='collection__modal-close btn'>
+                            <span className='screenreader'> Close </span>
+                            x
+                        </button>
+                    </header>
+                    <div className='collection__modal-content'>
+                        <form className='collection__modal-filter'>
+                            <div className='filter__form'>
+                                {Object.entries(sub).map(([title, values], i) => {
+                                    return (
+                                        <div className='filter__form-inner' key={i}>
+                                            <div className='filter__group-title'>
+                                                {title}
+                                            </div> 
+                                            <ul className='filter__group-list'>
+                                                {values.map((option, i) => {
+                                                    return (
+                                                        <li className='filter__group-item' key={i}>
+                                                            <input type="checkbox" className='check-with-label'/>
+                                                            <label htmlFor="" className='label-for-check'>
+                                                                { option }
+                                                            </label>
+                                                        </li>
+                                                    )
+                                                })}
+                                            </ul>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </form>
+                    </div>
+                </ReactModal>
             </>
         )
     }
@@ -68,10 +136,6 @@ export const Toolbar = () => {
 
     function SortTool({ tool, sub }) {
 
-        // const [selectSort, setSelectSort] = useState({
-        //     width: '',
-        //     sort: ''
-        // });
         const [selectWidth, setSelectWidth] = useState(null);
 
         return (
@@ -83,7 +147,7 @@ export const Toolbar = () => {
                     <span style={{margin: '0 .125rem'}}>(</span>
                     <fieldset>
                         <legend className='screenreader'>View Options</legend>
-                        <select aria-label='View Options' style={{textAlign: 'right', marginLeft: '-47px', width: selectWidth}} 
+                        <select aria-label='View Options' style={{textAlign: 'right', marginLeft: -47, width: selectWidth}} 
                         className='collection__filter-select btn__text' onChange={(e) => {
                             Object.values(sub).forEach((item) => {
                                 if (e.target.value === item.value) {
@@ -121,9 +185,9 @@ export const Toolbar = () => {
                             } else {
                                 return (
                                     <li className='collection__filter-item' key={i}>
-                                        <FilterTool />
+                                        <FilterTool tool={tool} sub={sub}/>
                                     </li>
-                                )
+                                )    
                             }
                         })}
                     </ul>
