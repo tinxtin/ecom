@@ -129,7 +129,30 @@ fieldset {
   transition: opacity .3s ease-out .15s;
 }
 
+.icon {
+
+  &__close {
+    width: .75em !important;
+    height: .75em !important;  
+  }
+}
+
 .btn {
+  border: none;
+  border-radius: 0;
+  appearance: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.025em;
+  padding: .5rem 1rem;
+  min-height: 2.5rem;
+  transition: font-size .4s ease-in-out;
+
+  &__fullsize {
+    width: 100%;
+    min-width: 100% !important;
+  }
 
   &__link {
     background-color: transparent;
@@ -143,6 +166,18 @@ fieldset {
     border: 0;
     color: rgb(70, 69, 69);
     padding: 0;
+  }
+
+  &__icon {
+    background-color: #fff;
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    appearance: none;
+    cursor: pointer;
+    padding: 0;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
 
@@ -398,25 +433,6 @@ fieldset {
     user-select: none;
   }
 }
-
-.btn {
-  border: none;
-  border-radius: 0;
-  appearance: none;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 0.025em;
-  padding: .5rem 1rem;
-  min-height: 2.5rem;
-  transition: font-size .4s ease-in-out;
-
-  &__fullsize {
-    width: 100%;
-    min-width: 100% !important;
-  }
-}
-
 
 .card {
 
@@ -791,6 +807,70 @@ fieldset {
 
     &-btn {
       display: inline-flex;
+    }
+  }
+
+  &__modal {
+    position: absolute;
+    display: inline-block;
+    max-width: 43.5rem;
+    width: 100%;
+    inset: 50% auto auto 50%;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    padding: 0 .625rem 0 .625rem;
+    vertical-align: middle;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+
+    &-overlay {
+      position: fixed;
+      inset: 0px;
+      background-color: rgba(0, 0, 0, 0.35);
+      z-index: 100;
+      font-size: .875rem;
+      line-height: 140%;
+    }
+
+    &-header {
+      margin-bottom: 1rem;
+      position: relative;
+      padding: .625rem 0 .5rem;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -.1875rem;
+        left: -.625rem;
+        display: block;
+        border-bottom: 1px solid #f0f0f0;
+        width: calc(100% + 1.25rem);
+      }
+
+      &-title {
+        margin: 0;
+        font-weight: 600;
+        text-align: left;
+        font-size: .875rem;
+        line-height: 1.225rem;
+      }
+    }
+
+    &-close {
+      font-size: 1rem;
+      margin: 0;
+      position: absolute;
+      right: -.3125rem;
+      top: 0;
+      min-height: 2.3125rem;
+      z-index: 2;
+      animation: none;
+      background: 0 0;
+      outline: 0;
+
+      @media only screen and (min-width: 1025px) {
+        right: -.5rem;
+      }
     }
   }
 }

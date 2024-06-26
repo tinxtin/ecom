@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef  } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 import ReactModal from 'react-modal';
 ReactModal.setAppElement('#root');
 
@@ -72,33 +73,19 @@ export const Toolbar = () => {
                     </span>
                 </span>
                 <ReactModal
+                    className='collection__modal modal'
+                    overlayClassName='collection__modal-overlay'
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
                     contentLabel='Modal'
-                    style={{
-                        overlay: {
-                            backgroundColor: 'rgba(0, 0, 0, .35)',
-                            zIndex: '100'
-                        },
-                        content: {
-                            top: '50%',
-                            left: '50%',
-                            right: 'auto',
-                            bottom: 'auto',
-                            borderRadius: 'none',
-                            marginRight: '-50%',
-                            zIndex: '101',
-                            transform: 'translate(-50%, -50%)',
-                        }
-                    }}  
                 >
                     <header className='collection__modal-header'>
-                        <h3 className='collection__modal-title'>
+                        <h3 className='collection__modal-header-title'>
                             { tool }
                         </h3>
-                        <button className='collection__modal-close btn'>
+                        <button className='collection__modal-close btn btn__icon' type='button'>
                             <span className='screenreader'> Close </span>
-                            x
+                            <CloseIcon className='icon__close'/>
                         </button>
                     </header>
                     <div className='collection__modal-content'>
@@ -125,6 +112,14 @@ export const Toolbar = () => {
                                         </div>
                                     )
                                 })}
+                            </div>
+                            <div className='filter__btn-group'>
+                                <button className='btn-secondary btn'>
+                                    Cancel
+                                </button>
+                                <button className='btn-primary btn'>
+                                    Apply
+                                </button>
                             </div>
                         </form>
                     </div>
