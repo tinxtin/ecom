@@ -83,6 +83,13 @@ fieldset {
   padding: 0;
 }
 
+input {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
 .main {
   display: block;
   position: relative;
@@ -99,6 +106,13 @@ fieldset {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.list {
+    font-size: 1em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -138,6 +152,7 @@ fieldset {
 }
 
 .btn {
+  background-color: rgb(255, 255, 255);
   border: none;
   border-radius: 0;
   appearance: none;
@@ -872,8 +887,96 @@ fieldset {
         right: -.5rem;
       }
     }
+
+    &-content {
+      text-align: left;
+
+      @media only screen and (min-width: 1025px) {
+        padding-right: 6rem;
+      }
+
+      .filter {
+
+        &__btn {
+          
+          &-group {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.25rem 0 .75rem;
+            gap: .75rem;
+            position: sticky;
+            bottom: 0;
+
+            @media only screen and (min-width: 1025px) {
+              justify-content: flex-start;
+              padding: 3.75rem 0 1rem;
+            }
+
+            .btn {
+              flex: 0 auto;
+
+              &-secondary {
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(232, 232, 232);;
+                border-bottom-color: rgb(0, 0, 0) !important;
+              }
+            }
+          }
+        }
+
+        &__group {
+
+          &-title {
+            padding: 1.875rem 0 .625rem .125rem;
+
+            &:first-child {
+              padding-top: .25rem;
+            }
+          }
+
+          &-list {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            column-gap: .25rem;
+            row-gap: .25rem;
+          }
+
+          &-item {
+            padding: 0;
+            margin: 0;
+            display: inherit;
+
+            .check-with-label {
+              visibility: hidden;
+              width: 0;
+              height: 0;
+            }
+
+            .label-for-check {
+              cursor: pointer;
+              padding: .71875rem .75rem;
+              height: 2.75rem;
+              background-color: rgb(240, 240, 240);
+              border: 1px solid rgb(240, 240, 240);
+              outline: rgb(240, 240, 240) solid 1px;
+              font-style: italic;
+              margin: 0;
+              display: flex;
+
+              @media only screen and (min-width: 1025px) {
+                padding: .325rem .75rem;
+                height: 2rem;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
+
+
 
 
 /*# sourceMappingURL=style.scss.map */

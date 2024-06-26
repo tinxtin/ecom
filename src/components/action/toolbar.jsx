@@ -47,7 +47,8 @@ export const Toolbar = () => {
 
     function FilterTool({ tool, sub }) {
 
-        const [activeFilter, setActiveFilter] = useState(0)
+        const [activeFilters, setActiveFilters] = useState(0)
+        const [selectedFilters, setSelectedFilters] = useState(null)
         const [modalIsOpen, setIsOpen] = useState(false);
 
         function openModal() {
@@ -67,7 +68,7 @@ export const Toolbar = () => {
                     <span className='collection__filter-btn' onClick={openModal}>
                         <span style={{margin: '0 .125rem'}}>(</span>
                         <button type='button' className='collection__filter-button btn__text'>
-                            { activeFilter }
+                            { activeFilters }
                         </button>
                         <span style={{margin: '0 .125rem'}}>)</span>
                     </span>
@@ -83,7 +84,7 @@ export const Toolbar = () => {
                         <h3 className='collection__modal-header-title'>
                             { tool }
                         </h3>
-                        <button className='collection__modal-close btn btn__icon' type='button'>
+                        <button className='collection__modal-close btn btn__icon' type='button' onClick={closeModal}>
                             <span className='screenreader'> Close </span>
                             <CloseIcon className='icon__close'/>
                         </button>
@@ -91,33 +92,35 @@ export const Toolbar = () => {
                     <div className='collection__modal-content'>
                         <form className='collection__modal-filter'>
                             <div className='filter__form'>
-                                {Object.entries(sub).map(([title, values], i) => {
-                                    return (
-                                        <div className='filter__form-inner' key={i}>
-                                            <div className='filter__group-title'>
-                                                {title}
-                                            </div> 
-                                            <ul className='filter__group-list'>
-                                                {values.map((option, i) => {
-                                                    return (
-                                                        <li className='filter__group-item' key={i}>
-                                                            <input type="checkbox" className='check-with-label'/>
-                                                            <label htmlFor="" className='label-for-check'>
-                                                                { option }
-                                                            </label>
-                                                        </li>
-                                                    )
-                                                })}
-                                            </ul>
-                                        </div>
-                                    )
-                                })}
+                                <div className='filter__form-inner'>
+                                    {Object.entries(sub).map(([title, values], i) => {
+                                        return (
+                                            <>
+                                                <div className='filter__group-title'>
+                                                    {title}
+                                                </div>
+                                                <ul className='filter__group-list list'>
+                                                    {values.map((option, i) => {
+                                                        return (
+                                                            <li className='filter__group-item' key={i}>
+                                                                <input type="checkbox" className='check-with-label' onClick={console.log('test')}/>
+                                                                <label htmlFor="" className='label-for-check'>
+                                                                    { option }
+                                                                </label>
+                                                            </li>
+                                                        )
+                                                    })}
+                                                </ul>
+                                            </>
+                                        )
+                                    })}
+                                </div>
                             </div>
                             <div className='filter__btn-group'>
-                                <button className='btn-secondary btn'>
+                                <button type='button' className='btn-secondary btn' onClick={closeModal}>
                                     Cancel
                                 </button>
-                                <button className='btn-primary btn'>
+                                <button type='button' className='btn-primary btn'>
                                     Apply
                                 </button>
                             </div>
