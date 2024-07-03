@@ -803,14 +803,15 @@ input {
 }
 .collection__modal-content .filter__btn-group .btn-secondary {
   background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(232, 232, 232);
-  border-bottom-color: rgb(0, 0, 0) !important;
+}
+.collection__modal-content .filter__form-inner:first-child {
+  padding-top: 0.25rem;
+}
+.collection__modal-content .filter__form-inner:nth-child(2) {
+  padding-top: 1.875rem;
 }
 .collection__modal-content .filter__group-title {
-  padding: 1.875rem 0 0.625rem 0.125rem;
-}
-.collection__modal-content .filter__group-title:first-child {
-  padding-top: 0.25rem;
+  padding: 0 0 0.625rem 0.125rem;
 }
 .collection__modal-content .filter__group-list {
   display: flex;

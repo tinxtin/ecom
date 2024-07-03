@@ -1,19 +1,20 @@
 import { useState, useEffect, useRef  } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import ReactModal from 'react-modal';
+import { Checkbox } from './checkbox'
 ReactModal.setAppElement('#root');
 
 export const Toolbar = () => {
 
     const toolbarOptions = {
         Filter: {
-            SkinTypeFilter: [
+            SkinTypeFilters: [
                 'Dry',
                 'Normal',
                 'Oily',
                 'Sensitive',
             ],
-            SkinConcernFilter: [
+            SkinConcernFilters: [
                 'Dryness',
                 'Dullness',
                 'Fine lines',
@@ -50,6 +51,7 @@ export const Toolbar = () => {
         const [activeFilters, setActiveFilters] = useState(0)
         const [selectedFilters, setSelectedFilters] = useState(null)
         const [modalIsOpen, setIsOpen] = useState(false);
+        const [checked, setChecked] = useState(false);
 
         function openModal() {
             setIsOpen(true);
@@ -84,7 +86,7 @@ export const Toolbar = () => {
                         <h3 className='collection__modal-header-title'>
                             { tool }
                         </h3>
-                        <button className='collection__modal-close btn btn__icon' type='button' onClick={closeModal}>
+                        <button className='collection__modal-close btn btn__icon' type='button' onChange={closeModal}>
                             <span className='screenreader'> Close </span>
                             <CloseIcon className='icon__close'/>
                         </button>
@@ -92,26 +94,31 @@ export const Toolbar = () => {
                     <div className='collection__modal-content'>
                         <form className='collection__modal-filter'>
                             <div className='filter__form'>
-                                <div className='filter__form-inner'>
+                                <div className='filter__form-outer'>
                                     {Object.entries(sub).map(([title, values], i) => {
                                         return (
-                                            <>
+                                            <div className='filter__form-inner' key={i}>
                                                 <div className='filter__group-title'>
-                                                    {title}
+                                                    { title.replace(/([A-Z])/g, ' $1').trim() }
                                                 </div>
                                                 <ul className='filter__group-list list'>
-                                                    {values.map((option, i) => {
-                                                        return (
-                                                            <li className='filter__group-item' key={i}>
-                                                                <input type="checkbox" className='check-with-label' onClick={console.log('test')}/>
-                                                                <label htmlFor="" className='label-for-check'>
-                                                                    { option }
-                                                                </label>
-                                                            </li>
-                                                        )
+                                                    {values.map((label, i) => {
+                                                        if (title.toLocaleLowerCase() === 'skintypefilters') {
+                                                            return (
+                                                                <li className='filter__group-item' key={i}>
+                                                                    <Checkbox label={label} title={title} idx={i}/>
+                                                                </li>
+                                                            )
+                                                        } else {
+                                                            return (
+                                                                <li className='filter__group-item' key={i}>
+                                                                    <Checkbox label={label} title={title} idx={i}/>
+                                                                </li>
+                                                            )
+                                                        }
                                                     })}
                                                 </ul>
-                                            </>
+                                            </div>
                                         )
                                     })}
                                 </div>
@@ -122,6 +129,9 @@ export const Toolbar = () => {
                                 </button>
                                 <button type='button' className='btn-primary btn'>
                                     Apply
+                                    <span style={{margin: '0 .125rem', lineHeight: '1.225rem'}}> ( </span>
+                                    {activeFilters}
+                                    <span style={{margin: '0 .125rem', lineHeight: '1.225rem'}}> ) </span>
                                 </button>
                             </div>
                         </form>

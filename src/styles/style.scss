@@ -917,9 +917,21 @@ input {
 
               &-secondary {
                 background-color: rgb(255, 255, 255);
-                border: 1px solid rgb(232, 232, 232);;
-                border-bottom-color: rgb(0, 0, 0) !important;
               }
+            }
+          }
+        }
+
+        &__form {
+
+          &-inner {
+
+            &:first-child {
+              padding-top: .25rem;
+            }
+
+            &:nth-child(2) {
+              padding-top: 1.875rem;
             }
           }
         }
@@ -927,11 +939,7 @@ input {
         &__group {
 
           &-title {
-            padding: 1.875rem 0 .625rem .125rem;
-
-            &:first-child {
-              padding-top: .25rem;
-            }
+            padding: 0 0 .625rem .125rem;
           }
 
           &-list {
