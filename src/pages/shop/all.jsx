@@ -1,9 +1,12 @@
+import { Toolbar } from '../../components/action/toolbar'
 
 export const Shop = () => {
 
     return (
-        <div>
-            test
-        </div>
+        <>
+            <section className='collection'>
+                <Toolbar/>
+            </section>   
+        </>
     )
 }
