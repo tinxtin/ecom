@@ -9,16 +9,40 @@ export const Toolbar = () => {
     const toolbarOptions = {
         Filter: {
             SkinTypeFilters: [
-                'Dry',
-                'Normal',
-                'Oily',
-                'Sensitive',
+                {
+                    name: 'Dry',
+                    checked: false,
+                },
+                {
+                    name: 'Normal',
+                    checked: false,
+                },
+                {
+                    name: 'Oily',
+                    checked: false,
+                },
+                {
+                    name: 'Sensitive',
+                    checked: false,
+                },
             ],
             SkinConcernFilters: [
-                'Dryness',
-                'Dullness',
-                'Fine lines',
-                'Pores',
+                {
+                    name: 'Dryness',
+                    checked: false,
+                },
+                {
+                    name: 'Dullness',
+                    checked: false,
+                },
+                {
+                    name: 'Fine lines',
+                    checked: false,
+                },
+                {
+                    name: 'Pores',
+                    checked: false,
+                },
             ]
         },
         Sort: {
@@ -49,9 +73,8 @@ export const Toolbar = () => {
     function FilterTool({ tool, sub }) {
 
         const [activeFilters, setActiveFilters] = useState(0)
-        const [selectedFilters, setSelectedFilters] = useState(null)
+        const [selectedFilters, setSelectedFilters] = useState(0)
         const [modalIsOpen, setIsOpen] = useState(false);
-        const [checked, setChecked] = useState(false);
 
         function openModal() {
             setIsOpen(true);
@@ -59,6 +82,14 @@ export const Toolbar = () => {
 
         function closeModal() {
             setIsOpen(false);
+        }
+
+        function updateActiveFilters(i) {
+            setActiveFilters((prev) => prev + i)
+        }
+
+        function updateSelectedFilters() {
+            setSelectedFilters(activeFilters)
         }
 
         return (
@@ -70,7 +101,7 @@ export const Toolbar = () => {
                     <span className='collection__filter-btn' onClick={openModal}>
                         <span style={{margin: '0 .125rem'}}>(</span>
                         <button type='button' className='collection__filter-button btn__text'>
-                            { activeFilters }
+                            { selectedFilters }
                         </button>
                         <span style={{margin: '0 .125rem'}}>)</span>
                     </span>
@@ -86,7 +117,7 @@ export const Toolbar = () => {
                         <h3 className='collection__modal-header-title'>
                             { tool }
                         </h3>
-                        <button className='collection__modal-close btn btn__icon' type='button' onChange={closeModal}>
+                        <button className='collection__modal-close btn btn__icon' type='button' onClick={closeModal}>
                             <span className='screenreader'> Close </span>
                             <CloseIcon className='icon__close'/>
                         </button>
@@ -102,17 +133,17 @@ export const Toolbar = () => {
                                                     { title.replace(/([A-Z])/g, ' $1').trim() }
                                                 </div>
                                                 <ul className='filter__group-list list'>
-                                                    {values.map((label, i) => {
+                                                    {values.map((option, i) => {
                                                         if (title.toLocaleLowerCase() === 'skintypefilters') {
                                                             return (
                                                                 <li className='filter__group-item' key={i}>
-                                                                    <Checkbox label={label} title={title} idx={i}/>
+                                                                    <Checkbox changeActive={updateActiveFilters} option={option} title={title} idx={i}/>
                                                                 </li>
                                                             )
                                                         } else {
                                                             return (
                                                                 <li className='filter__group-item' key={i}>
-                                                                    <Checkbox label={label} title={title} idx={i}/>
+                                                                    <Checkbox changeActive={updateActiveFilters} option={option} title={title} idx={i}/>
                                                                 </li>
                                                             )
                                                         }
@@ -127,10 +158,12 @@ export const Toolbar = () => {
                                 <button type='button' className='btn-secondary btn' onClick={closeModal}>
                                     Cancel
                                 </button>
-                                <button type='button' className='btn-primary btn'>
+                                <button type='button' className='btn-primary btn' onClick={
+                                    () => { updateSelectedFilters(); closeModal() }
+                                }>
                                     Apply
                                     <span style={{margin: '0 .125rem', lineHeight: '1.225rem'}}> ( </span>
-                                    {activeFilters}
+                                        { activeFilters }
                                     <span style={{margin: '0 .125rem', lineHeight: '1.225rem'}}> ) </span>
                                 </button>
                             </div>

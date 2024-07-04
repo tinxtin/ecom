@@ -1,23 +1,28 @@
 import { useState, useEffect, useRef  } from 'react';
-export const Checkbox = ({ label, title, idx }) => {
-
-    const [isChecked, setIsChecked] = useState(false);
+export const Checkbox = ({ changeActive, option, title, idx }) => {
 
     return (
         <>
             <input 
             type="checkbox" 
             className='check-with-label' 
-            value={ label } 
+            value={ option.name } 
             id={`${title.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()}-${idx}`}
-            checked={isChecked}
+            checked={option.checked}
             onChange={() => {
-                setIsChecked((prev) => !prev)
+                option.checked = !option.checked;
+                if (option.checked) {
+                    changeActive(1)
+                } else {
+                    changeActive(-1)
+                }
             }}
             />
             <label htmlFor={`${title.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()}-${idx}`} 
-                className='label-for-check' style={ isChecked ? {border: '1px solid rgb(255, 255, 255)', outline: 'solid 1px rgb(0, 0, 0)'} : {border: ''}}>
-                { label }
+                className='label-for-check' 
+                style={ option.checked ? {border: '1px solid rgb(255, 255, 255)', outline: 'solid 1px rgb(0, 0, 0)'} : {border: ''}}
+                >
+                { option.name }
             </label>
         </>
     )
