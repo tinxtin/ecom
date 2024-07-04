@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef  } from 'react';
-export const Checkbox = ({ label, title, idx }) => {
+export const Checkbox = ({ changeActive, label, title, idx }) => {
 
     const [isChecked, setIsChecked] = useState(false);
-
     return (
         <>
             <input 
@@ -12,7 +11,12 @@ export const Checkbox = ({ label, title, idx }) => {
             id={`${title.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()}-${idx}`}
             checked={isChecked}
             onChange={() => {
-                setIsChecked((prev) => !prev)
+                setIsChecked((prev) => !prev);
+                if (!isChecked) {
+                    changeActive(1)
+                } else {
+                    changeActive(-1)
+                }
             }}
             />
             <label htmlFor={`${title.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()}-${idx}`} 

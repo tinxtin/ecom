@@ -61,6 +61,10 @@ export const Toolbar = () => {
             setIsOpen(false);
         }
 
+        function updateActiveFilters(i) {
+            setActiveFilters((prev) => prev + i)
+        }
+
         return (
             <>
                 <span className='collection__filter-item-title' onClick={openModal}>
@@ -106,13 +110,13 @@ export const Toolbar = () => {
                                                         if (title.toLocaleLowerCase() === 'skintypefilters') {
                                                             return (
                                                                 <li className='filter__group-item' key={i}>
-                                                                    <Checkbox label={label} title={title} idx={i}/>
+                                                                    <Checkbox changeActive={updateActiveFilters} label={label} title={title} idx={i}/>
                                                                 </li>
                                                             )
                                                         } else {
                                                             return (
                                                                 <li className='filter__group-item' key={i}>
-                                                                    <Checkbox label={label} title={title} idx={i}/>
+                                                                    <Checkbox changeActive={updateActiveFilters} label={label} title={title} idx={i}/>
                                                                 </li>
                                                             )
                                                         }
