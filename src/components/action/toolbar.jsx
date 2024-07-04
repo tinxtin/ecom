@@ -163,7 +163,7 @@ export const Toolbar = () => {
                                 }>
                                     Apply
                                     <span style={{margin: '0 .125rem', lineHeight: '1.225rem'}}> ( </span>
-                                    {(activeFilters)}
+                                        { activeFilters }
                                     <span style={{margin: '0 .125rem', lineHeight: '1.225rem'}}> ) </span>
                                 </button>
                             </div>
