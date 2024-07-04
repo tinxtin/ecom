@@ -73,9 +73,8 @@ export const Toolbar = () => {
     function FilterTool({ tool, sub }) {
 
         const [activeFilters, setActiveFilters] = useState(0)
-        const [selectedFilters, setSelectedFilters] = useState(null)
+        const [selectedFilters, setSelectedFilters] = useState(0)
         const [modalIsOpen, setIsOpen] = useState(false);
-        const [checked, setChecked] = useState(false);
 
         function openModal() {
             setIsOpen(true);
@@ -89,6 +88,10 @@ export const Toolbar = () => {
             setActiveFilters((prev) => prev + i)
         }
 
+        function updateSelectedFilters() {
+            setSelectedFilters(activeFilters)
+        }
+
         return (
             <>
                 <span className='collection__filter-item-title' onClick={openModal}>
@@ -98,7 +101,7 @@ export const Toolbar = () => {
                     <span className='collection__filter-btn' onClick={openModal}>
                         <span style={{margin: '0 .125rem'}}>(</span>
                         <button type='button' className='collection__filter-button btn__text'>
-                            { activeFilters }
+                            { selectedFilters }
                         </button>
                         <span style={{margin: '0 .125rem'}}>)</span>
                     </span>
@@ -155,10 +158,12 @@ export const Toolbar = () => {
                                 <button type='button' className='btn-secondary btn' onClick={closeModal}>
                                     Cancel
                                 </button>
-                                <button type='button' className='btn-primary btn'>
+                                <button type='button' className='btn-primary btn' onClick={
+                                    () => { updateSelectedFilters(); closeModal() }
+                                }>
                                     Apply
                                     <span style={{margin: '0 .125rem', lineHeight: '1.225rem'}}> ( </span>
-                                    {activeFilters}
+                                    {(activeFilters)}
                                     <span style={{margin: '0 .125rem', lineHeight: '1.225rem'}}> ) </span>
                                 </button>
                             </div>
