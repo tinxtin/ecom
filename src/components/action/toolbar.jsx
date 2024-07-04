@@ -9,16 +9,40 @@ export const Toolbar = () => {
     const toolbarOptions = {
         Filter: {
             SkinTypeFilters: [
-                'Dry',
-                'Normal',
-                'Oily',
-                'Sensitive',
+                {
+                    name: 'Dry',
+                    checked: false,
+                },
+                {
+                    name: 'Normal',
+                    checked: false,
+                },
+                {
+                    name: 'Oily',
+                    checked: false,
+                },
+                {
+                    name: 'Sensitive',
+                    checked: false,
+                },
             ],
             SkinConcernFilters: [
-                'Dryness',
-                'Dullness',
-                'Fine lines',
-                'Pores',
+                {
+                    name: 'Dryness',
+                    checked: false,
+                },
+                {
+                    name: 'Dullness',
+                    checked: false,
+                },
+                {
+                    name: 'Fine lines',
+                    checked: false,
+                },
+                {
+                    name: 'Pores',
+                    checked: false,
+                },
             ]
         },
         Sort: {
@@ -90,7 +114,7 @@ export const Toolbar = () => {
                         <h3 className='collection__modal-header-title'>
                             { tool }
                         </h3>
-                        <button className='collection__modal-close btn btn__icon' type='button' onChange={closeModal}>
+                        <button className='collection__modal-close btn btn__icon' type='button' onClick={closeModal}>
                             <span className='screenreader'> Close </span>
                             <CloseIcon className='icon__close'/>
                         </button>
@@ -106,17 +130,17 @@ export const Toolbar = () => {
                                                     { title.replace(/([A-Z])/g, ' $1').trim() }
                                                 </div>
                                                 <ul className='filter__group-list list'>
-                                                    {values.map((label, i) => {
+                                                    {values.map((option, i) => {
                                                         if (title.toLocaleLowerCase() === 'skintypefilters') {
                                                             return (
                                                                 <li className='filter__group-item' key={i}>
-                                                                    <Checkbox changeActive={updateActiveFilters} label={label} title={title} idx={i}/>
+                                                                    <Checkbox changeActive={updateActiveFilters} option={option} title={title} idx={i}/>
                                                                 </li>
                                                             )
                                                         } else {
                                                             return (
                                                                 <li className='filter__group-item' key={i}>
-                                                                    <Checkbox changeActive={updateActiveFilters} label={label} title={title} idx={i}/>
+                                                                    <Checkbox changeActive={updateActiveFilters} option={option} title={title} idx={i}/>
                                                                 </li>
                                                             )
                                                         }
