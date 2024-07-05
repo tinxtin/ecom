@@ -485,8 +485,8 @@ input {
   overflow: hidden;
 }
 .footer__container {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
 }
 .footer__content {
   display: flex;
@@ -547,6 +547,9 @@ input {
   color: rgb(0, 0, 0);
   font-size: 0.875rem;
   text-transform: none;
+}
+.footer__nav-icon {
+  transform: scale(0.8) translate(0, 8px);
 }
 .footer__input-container {
   display: flex;
