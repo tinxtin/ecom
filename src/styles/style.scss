@@ -219,7 +219,7 @@ input {
 
 			@media only screen and (min-width: 1024px) {
 				font-size: 0.875rem;
-    			line-height: 1.225rem;
+    		line-height: 1.225rem;
 			}
 		}
 	}
@@ -227,7 +227,7 @@ input {
 
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(242, 233, 228);
   position: fixed;
   width: 100%;
   top: 0;
@@ -266,17 +266,38 @@ input {
     }
 
     &__list {
+
+      @media only screen and (min-width: 1025px) {
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 0;
         padding: 0;
+
+        li:hover .nav__item-dropdown {
+          visibility: visible;
+          opacity: 1;
+          transform: translate3d(0, .875rem, 0);
+        }
+      }
     }
 
     &__item {
         margin: 0.25rem 0.5rem;
         padding: 0;
         white-space: nowrap;
+
+        &-dropdown {
+          background-color: rgb(242, 233, 228);
+          position: absolute;
+          visibility: hidden;
+          opacity: 0;
+          left: 0;
+          width: 100%;
+          margin: 0 auto;
+          padding: 4.5rem 0 2.75rem 0;
+          transition: opacity .4s ease-in-out, transform .4s ease-in-out, visibility .4s ease-in-out,;
+        }
 
         &-link {
             display: block;
@@ -305,6 +326,58 @@ input {
             }
         }
     }
+}
+
+.dropdown {
+
+  &__content {
+
+    @media only screen and (min-width: 1025px) {
+      padding: 0 4.25rem 0 5rem;
+
+      &-list {
+        margin-left: -.75rem;
+      }
+    }
+
+    .swiper-slide {
+      width: fit-content !important;
+      padding-bottom: .625rem;
+    }
+  }
+
+  @media only screen and (min-width: 1025px) {
+    &__image {
+  
+      display: block;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      transition: border-color .4s ease-in-out;
+
+    }
+  
+    &__header {
+        font-size: 1.225rem;
+        letter-spacing: .5px;
+        line-height: 1.375rem;
+        padding-top: .75rem;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    &__link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &:hover {
+
+        .dropdown__image {
+          border-color: red;
+        }
+      }
+    }
+  }
 }
 
 .home {

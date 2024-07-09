@@ -217,7 +217,7 @@ input {
 
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(242, 233, 228);
   position: fixed;
   width: 100%;
   top: 0;
@@ -250,17 +250,35 @@ input {
 .nav__content:last-of-type {
   justify-content: flex-end;
 }
-.nav__list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
+@media only screen and (min-width: 1025px) {
+  .nav__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  .nav__list li:hover .nav__item-dropdown {
+    visibility: visible;
+    opacity: 1;
+    transform: translate3d(0, 0.875rem, 0);
+  }
 }
 .nav__item {
   margin: 0.25rem 0.5rem;
   padding: 0;
   white-space: nowrap;
+}
+.nav__item-dropdown {
+  background-color: rgb(242, 233, 228);
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 4.5rem 0 2.75rem 0;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s ease-in-out;
 }
 .nav__item-link {
   display: block;
@@ -284,6 +302,43 @@ input {
 .nav__item-btn:hover {
   border-bottom: 1px solid;
   text-decoration: none;
+}
+
+@media only screen and (min-width: 1025px) {
+  .dropdown__content {
+    padding: 0 4.25rem 0 5rem;
+  }
+  .dropdown__content-list {
+    margin-left: -0.75rem;
+  }
+}
+.dropdown__content .swiper-slide {
+  width: fit-content !important;
+  padding-bottom: 0.625rem;
+}
+@media only screen and (min-width: 1025px) {
+  .dropdown__image {
+    display: block;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border-color 0.4s ease-in-out;
+  }
+  .dropdown__header {
+    font-size: 1.225rem;
+    letter-spacing: 0.5px;
+    line-height: 1.375rem;
+    padding-top: 0.75rem;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  .dropdown__link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .dropdown__link:hover .dropdown__image {
+    border-color: red;
+  }
 }
 
 .home__hero {
