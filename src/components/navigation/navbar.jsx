@@ -1,5 +1,7 @@
 import { useMatch, useResolvedPath, NavLink } from 'react-router-dom';
 import { NavRoute } from '../route/navroute';
+import { NavItem } from './navbaritem';
+
 export const NavBar = () => {
 
     function NavModal({ children }) {
@@ -17,20 +19,61 @@ export const NavBar = () => {
 
     }
 
+    const navData = [
+        {
+            label: 'Shop',
+            href: '/collection/all',
+            children: [
+                {
+                    heading: 'dropdown content',
+                    submenu: [
+                        {
+                            label: 'test1',
+                            href: '#',
+                        },
+                        {
+                            label: 'test2',
+                            href: '#',
+                        },
+                        {
+                            label: 'test3',
+                            href: '#',
+                        },
+                        {
+                            label: 'test4',
+                            href: '#',
+                        },
+                        {
+                            label: 'test5',
+                            href: '#',
+                        },
+                        {
+                            label: 'test6',
+                            href: '#',
+                        },
+                        {
+                            label: 'test7',
+                            href: '#',
+                        },
+                    ]
+                }
+            ]
+        },
+        {
+            label: 'About',
+            href: '/about'
+        }
+    ]
+
     return (
         <nav className='nav__container container'>
             <div className='nav__content'>
                 <ul className='nav__list'>
-                    <li className='nav__item'>
-                        <NavRoute to='/collection/all' className={({ isActive }) => isActive ? 'nav__item-link active': 'nav__item-link'}>
-                            Shop
-                        </NavRoute>
-                    </li>
-                    <li className='nav__item'>
-                        <NavRoute to='/about' className={({ isActive }) => isActive ? 'nav__item-link active': 'nav__item-link'}>
-                            About
-                        </NavRoute>
-                    </li>
+                    { navData.map(({ label, href, children}, i) => {
+                        return (
+                            <NavItem key={i} {...{ label, href, children }}/>
+                        )
+                    })}
                 </ul>
             </div>
             <div className='nav__content'>

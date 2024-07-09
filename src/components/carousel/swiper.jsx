@@ -27,7 +27,7 @@ export const SwiperSlide = (props) => {
 	const { children, ...rest } = props;
 	
 	  return (
-		<swiper-slide {...rest}>
+		<swiper-slide class='swiper-slide' {...rest}>
 		  {children}
 		</swiper-slide>
 	  );
