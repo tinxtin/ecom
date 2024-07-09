@@ -246,6 +246,7 @@ input {
     &__container {
         display: flex;
         margin: 0 auto;
+        padding-top: 1.55rem;
         width: 100%;
         height: 4rem;
     }
@@ -277,14 +278,14 @@ input {
         li:hover .nav__item-dropdown {
           visibility: visible;
           opacity: 1;
-          transform: translate3d(0, .875rem, 0);
+          transform: translate3d(0, 0, 0);
         }
       }
     }
 
     &__item {
-        margin: 0.25rem 0.5rem;
-        padding: 0;
+        // margin: .25rem 0.5rem;
+        padding: 0 2rem 1.2rem 0;
         white-space: nowrap;
 
         &-dropdown {
@@ -296,7 +297,9 @@ input {
           width: 100%;
           margin: 0 auto;
           padding: 4.5rem 0 2.75rem 0;
+          transform: translate3d(0, -4rem, 0);
           transition: opacity .4s ease-in-out, transform .4s ease-in-out, visibility .4s ease-in-out,;
+          z-index: -1;
         }
 
         &-link {
