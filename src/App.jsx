@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef  } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import { PromoBar } from './components/promotion/promoBar';
-import { Nav } from './components/navigation/nav';
+import { Nav } from './components/navigation/header/desktop/nav';
 import { Home } from './pages/main/home';
 import { Shop } from './pages/shop/all';
 import { NavFooter } from './components/navigation/footer/footerbar';

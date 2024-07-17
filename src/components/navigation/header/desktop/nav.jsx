@@ -1,14 +1,21 @@
 import { useMatch, useResolvedPath, NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef  } from 'react';
-import { NavRoute } from '../route/navroute';
-import { NavMobileItem } from './navmobileitem';
-import { NavMobile } from './navmobile';
+import { NavRoute } from '../../../route/navroute';
+import { NavMobile } from '../mobile/navmobile';
 import { Menu } from '@mui/icons-material';
 import { Close } from '@mui/icons-material';
 
 export const Nav = () => {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [clicked, setClicked] = useState(null);
+
+    const handleToggle = (idx) => {
+        if (clicked === idx) {
+            return setClicked(null);
+        }
+        setClicked(idx);
+    };
 
     function NavModal({ children }) {
         
@@ -80,7 +87,7 @@ export const Nav = () => {
                 <button type='button' className={`nav__mobile-btn btn ${isDrawerOpen && 'active'}`} onClick={() => setIsDrawerOpen((prev) => !prev)}>
                     {isDrawerOpen && <Close />}
                 </button>
-                <NavMobile  {... { navData, isDrawerOpen, setIsDrawerOpen }}/>
+                <NavMobile  {... { navData, isDrawerOpen, setIsDrawerOpen, clicked, handleToggle }}/>
             </div>
             {/* <div className='nav__content hide__mobile'>
                 <ul className='nav__list'>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from '../carousel/swiper';
+import { Swiper, SwiperSlide } from '../../../carousel/swiper';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 
 export const NavCarousel = ({ sub }) => {
