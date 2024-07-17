@@ -6,31 +6,15 @@ import { FeaturedProducts } from '../../components/carousel/featured';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { CustomCards } from '../../components/collection/card';
 import { Collections } from '../../utils/stock/all';
+import { useWindowDimensions } from '../../components/window/dimensions';
 
 export const Home = () => {
 
-    function getWindowDimensions() {
-        const { innerWidth: width, innerHeight: height } = window;
-
-        return {
-            width, height
-        }
-    }
-    
-    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowDimensions(getWindowDimensions())
-        }
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
+    const { height, width } = useWindowDimensions();
 
     return (
         <>
-            <section className='home__hero' style={{top: '-4rem', '--hero-height': windowDimensions.height / 100 + 'px', '--max-hero-height': windowDimensions.width / 200 + 'px'}}>
+            <section className='home__hero' style={{top: '-4rem', '--hero-height': height / 100 + 'px', '--max-hero-height': width / 200 + 'px'}}>
                 <Link to={''} className='home__hero-link'>
                     <div className='home__hero-wrapper'>
                         <div className='home__hero-image'>
@@ -44,12 +28,14 @@ export const Home = () => {
                     <ul className='featured__products-list container'>
                         <div className='swiper__viewport swiper__draggable'>
                             <Swiper
-                            modules={[Navigation, Pagination]}
+                            modules={[Navigation, Pagination, Scrollbar]}
                             slidesPerView={4}
                             breakpoints={{ 768: { slidesPerView: 4 } }}
                             navigation={true}
                             spaceBetween={12}
-                            pagination={{ clickable: true }}
+                            scrollbar={{
+                                hide: true,
+                            }}
                             injectStyles={[`
                                 .swiper-button-next,
                                 .swiper-button-prev {

@@ -1,4 +1,4 @@
-import { Newsletter } from '../promotion/newsletter'
+import { Newsletter } from '../../promotion/newsletter'
 import { FooterNav } from './footerlink'
 
 export const NavFooter = () => {
