@@ -1,4 +1,4 @@
-import { NavRoute } from '../route/navroute';
+import { NavRoute } from '../../route/navroute';
 import { Instagram, Facebook, Pinterest, YouTube } from '@mui/icons-material/';
 
 export const FooterNav = () => {
@@ -35,7 +35,7 @@ export const FooterNav = () => {
                 },
                 {
                     label: 'TikTok',
-                    icon: <Facebook className='footer__nav-icon'/>,
+                    icon: '',
                 },
                 {
                     label: 'Youtube',

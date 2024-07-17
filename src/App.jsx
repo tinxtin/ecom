@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef  } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import { PromoBar } from './components/promotion/promoBar';
-import { NavBar } from './components/navigation/navbar';
+import { Nav } from './components/navigation/nav';
 import { Home } from './pages/main/home';
 import { Shop } from './pages/shop/all';
-import { NavFooter } from './components/navigation/footerbar';
+import { NavFooter } from './components/navigation/footer/footerbar';
+import { NavRoute } from './components/route/navroute';
 
 function App() {
  
@@ -21,7 +22,7 @@ function App() {
         <PromoBar/>
       </div>
       <header className='header' style={{marginTop: promoHeight}}>
-        <NavBar/>
+        <Nav/>
       </header>
       <main className='main' style={{marginTop: promoHeight}}>
         <Routes>

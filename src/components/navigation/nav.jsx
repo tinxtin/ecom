@@ -1,8 +1,14 @@
 import { useMatch, useResolvedPath, NavLink } from 'react-router-dom';
+import { useState, useEffect, useRef  } from 'react';
 import { NavRoute } from '../route/navroute';
-import { NavItem } from './navbaritem';
+import { NavMobileItem } from './navmobileitem';
+import { NavMobile } from './navmobile';
+import { Menu } from '@mui/icons-material';
+import { Close } from '@mui/icons-material';
 
-export const NavBar = () => {
+export const Nav = () => {
+
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     function NavModal({ children }) {
         
@@ -67,15 +73,24 @@ export const NavBar = () => {
 
     return (
         <nav className='nav__container container'>
-            <div className='nav__content'>
+            <div className='nav__content hide__desktop'>
+                <button type='button' className={`nav__mobile-btn btn ${!isDrawerOpen && 'active'}`} onClick={() => setIsDrawerOpen((prev) => !prev)}>
+                    {!isDrawerOpen && <Menu />}
+                </button>
+                <button type='button' className={`nav__mobile-btn btn ${isDrawerOpen && 'active'}`} onClick={() => setIsDrawerOpen((prev) => !prev)}>
+                    {isDrawerOpen && <Close />}
+                </button>
+                <NavMobile  {... { navData, isDrawerOpen, setIsDrawerOpen }}/>
+            </div>
+            {/* <div className='nav__content hide__mobile'>
                 <ul className='nav__list'>
                     { navData.map(({ label, href, children}, i) => {
                         return (
-                            <NavItem key={i} {...{ label, href, children }}/>
+                            <NavItem key={i} {...{ label, href, children, isDrawerOpen }}/>
                         )
                     })}
                 </ul>
-            </div>
+            </div> */}
             <div className='nav__content'>
                 <NavRoute to='/'>
                     Logo
