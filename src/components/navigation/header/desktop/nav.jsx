@@ -2,10 +2,11 @@ import { useMatch, useResolvedPath, NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef  } from 'react';
 import { NavRoute } from '../../../route/navroute';
 import { NavMobile } from '../mobile/navmobile';
+import { NavDesktop } from './navdesktop';
 import { Menu } from '@mui/icons-material';
 import { Close } from '@mui/icons-material';
 
-export const Nav = () => {
+export const Nav = ({ setNavIsHovered }) => {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [clicked, setClicked] = useState(null);
@@ -89,15 +90,15 @@ export const Nav = () => {
                 </button>
                 <NavMobile  {... { navData, isDrawerOpen, setIsDrawerOpen, clicked, handleToggle }}/>
             </div>
-            {/* <div className='nav__content hide__mobile'>
+            <div className='nav__content hide__mobile'>
                 <ul className='nav__list'>
-                    { navData.map(({ label, href, children}, i) => {
+                    { navData.map(({ label, href, children }, i) => {
                         return (
-                            <NavItem key={i} {...{ label, href, children, isDrawerOpen }}/>
+                            <NavDesktop key={i} {...{ label, href, children, setNavIsHovered }}/>
                         )
                     })}
                 </ul>
-            </div> */}
+            </div>
             <div className='nav__content'>
                 <NavRoute to='/'>
                     Logo

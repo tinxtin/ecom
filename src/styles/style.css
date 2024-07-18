@@ -113,6 +113,24 @@ input {
   padding: 0;
 }
 
+.overlay {
+  background-color: rgb(253, 251, 248);
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out, z-index 0.6s ease-in-out;
+  visibility: hidden;
+  z-index: 1;
+}
+.overlay.active {
+  visibility: visible;
+  opacity: 0.6;
+  z-index: 5;
+}
+
 @media only screen and (min-width: 1024px) {
   .container {
     margin: 0 auto;
@@ -222,7 +240,7 @@ input {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 11;
+  z-index: 10;
   height: 4rem;
 }
 
@@ -282,19 +300,18 @@ input {
   padding: 0 2rem 1.2rem 0;
   white-space: nowrap;
 }
-@media only screen and (min-width: 1025px) {
-  .nav__desktop__list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
-  .nav__desktop__list li:hover .nav__item-dropdown {
-    visibility: visible;
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+.nav__desktop-dropdown {
+  background-color: rgb(242, 233, 228);
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 7.5rem 0 2.75rem 0;
+  transform: translate3d(0, -4rem, 0);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s ease-in-out;
+  z-index: -1;
 }
 .nav__mobile-btn {
   background-color: rgb(242, 233, 228);
@@ -374,10 +391,15 @@ input {
   left: 0;
   width: 100%;
   margin: 0 auto;
-  padding: 7.5rem 0 2.75rem 0;
+  padding: 3.5rem 0 2.75rem 0;
   transform: translate3d(0, -4rem, 0);
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s ease-in-out;
   z-index: -1;
+}
+.nav__item:hover .nav__item-dropdown {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 .nav__item-link {
   display: block;
@@ -386,6 +408,9 @@ input {
   font-size: 1rem;
   border-bottom: none;
   text-transform: uppercase;
+}
+.nav__item-link.active {
+  border-bottom: 1px solid rgb(0, 0, 0);
 }
 .nav__item-btn {
   display: block;

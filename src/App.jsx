@@ -10,6 +10,7 @@ import { NavRoute } from './components/route/navroute';
 function App() {
  
   const [promoHeight, setPromoHeight] = useState(0);
+  const [navIsHovered, setNavIsHovered] = useState(false)
   const refPromo= useRef(null);
 
   useEffect(() => {
@@ -22,8 +23,9 @@ function App() {
         <PromoBar/>
       </div>
       <header className='header' style={{marginTop: promoHeight}}>
-        <Nav/>
+        <Nav {...{ setNavIsHovered }}/>
       </header>
+      <aside className={`overlay ${navIsHovered && 'active'}`}/>
       <main className='main' style={{marginTop: promoHeight}}>
         <Routes>
             <Route path='/' element={<Home/>}/>
