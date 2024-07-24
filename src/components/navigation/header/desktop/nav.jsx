@@ -1,12 +1,15 @@
 import { useMatch, useResolvedPath, NavLink } from 'react-router-dom';
-import { useState, useEffect, useRef  } from 'react';
+import { useState, useEffect, useRef, useContext  } from 'react';
 import { NavRoute } from '../../../route/navroute';
 import { NavMobile } from '../mobile/navmobile';
 import { NavDesktop } from './navdesktop';
+import { NavSearch } from '../utilities/search/navsearch';
+import { NavAccount } from '../utilities/navaccount';
+import { NavBag } from '../utilities/navbag';
 import { Menu } from '@mui/icons-material';
 import { Close } from '@mui/icons-material';
 
-export const Nav = ({ setNavIsHovered }) => {
+export const Nav = () => {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [clicked, setClicked] = useState(null);
@@ -27,10 +30,6 @@ export const Nav = ({ setNavIsHovered }) => {
                 </button>
             </li>
         )
-    }
-
-    function OpenNavModal() {
-
     }
 
     const navData = [
@@ -76,7 +75,23 @@ export const Nav = ({ setNavIsHovered }) => {
         {
             label: 'About',
             href: '/about'
-        }
+        },
+    ]
+
+    const navUtil = [
+        {
+            label: 'Search',
+            href: '#',
+        },
+        {
+            label: 'Account',
+            href: '#',
+        },
+        {
+            label: 'Bag',
+            href: '#',
+        },
+
     ]
 
     return (
@@ -94,7 +109,7 @@ export const Nav = ({ setNavIsHovered }) => {
                 <ul className='nav__list'>
                     { navData.map(({ label, href, children }, i) => {
                         return (
-                            <NavDesktop key={i} {...{ label, href, children, setNavIsHovered }}/>
+                            <NavDesktop key={i} {...{ label, href, children }}/>
                         )
                     })}
                 </ul>
@@ -106,17 +121,21 @@ export const Nav = ({ setNavIsHovered }) => {
             </div>
             <div className='nav__content'>
                 <ul className='nav__list'>
-                    <NavModal>
-                        Search
-                    </NavModal>
-                    <NavModal>
-                        Account
-                    </NavModal>
-                    <NavModal>
-                        Bag (
-                        <span className='bag-btn-count'>0</span>
-                        )
-                    </NavModal>
+                    { navUtil.map(({ label, href }, i) => {
+                        if (label.toLowerCase() === 'search') {
+                            return (
+                                <NavSearch key={i} {...{ label, href }}/>
+                            )
+                        } else if ( label.toLowerCase() === 'account') {
+                            return (
+                                <NavAccount key={i} {...{ label, href }}/>
+                            )
+                        } else {
+                            return (
+                                <NavBag key={i} {...{ label, href }}/>
+                            )
+                        }
+                    })}
                 </ul>
             </div>
         </nav>
