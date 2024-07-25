@@ -8,6 +8,7 @@ import { NavFooter } from './components/navigation/footer/footerbar';
 import { NavRoute } from './components/route/navroute';
 import { NavHoverContext } from './components/statecontrol/navhovercontext';
 import { SearchContext } from './components/statecontrol/searchcontext'
+import { SearchForm } from './components/navigation/header/utilities/search/navsearchform';
 
 function App() {
  
@@ -34,7 +35,7 @@ function App() {
       </header>
       <aside className={`overlay ${navIsHovered && 'active'}`} onClick={() => setNavIsHovered(false)}/>
       <aside className={`search ${navSearchOn && 'active'}`}>
-
+        <SearchForm />
       </aside>
       <main className='main' style={{marginTop: promoHeight}}>
         <Routes>

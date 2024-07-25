@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useContext  } from 'react';
 import { SearchContext } from '../../../../statecontrol/searchcontext';
 
 export const NavSearch = ({ label, href }) => {
-
+    
     const setSearchContext = useContext(SearchContext)
 
     return (
