@@ -536,6 +536,11 @@ input {
   z-index: 3;
   cursor: pointer;
 }
+.search__form-close {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
 
 @media only screen and (min-width: 1025px) {
   .dropdown__content {

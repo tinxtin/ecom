@@ -124,7 +124,7 @@ export const Nav = () => {
                     { navUtil.map(({ label, href }, i) => {
                         if (label.toLowerCase() === 'search') {
                             return (
-                                <NavSearch key={i} {...{ label, href }}/>
+                                <NavSearch key={i} {...{ label }}/>
                             )
                         } else if ( label.toLowerCase() === 'account') {
                             return (

@@ -33,9 +33,9 @@ function App() {
           </SearchContext.Provider>
         </NavHoverContext.Provider>
       </header>
-      <aside className={`overlay ${navIsHovered && 'active'}`} onClick={() => setNavIsHovered(false)}/>
-      <aside className={`search ${navSearchOn && 'active'}`}>
-        <SearchForm />
+      <aside className={`overlay ${navIsHovered || navSearchOn ? 'active' : ''}`} onClick={() => {setNavIsHovered(false), setNavSearchOn(false)}}/>
+      <aside className={`search ${navSearchOn ? 'active' : ''}`}>
+          <SearchForm {...{ navSearchOn, setNavSearchOn }}/>
       </aside>
       <main className='main' style={{marginTop: promoHeight}}>
         <Routes>

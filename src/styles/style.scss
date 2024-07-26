@@ -616,6 +616,12 @@ input {
         z-index: 3;
         cursor: pointer;
       }
+
+      &-close {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+      }
     }
 }
 
