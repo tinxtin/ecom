@@ -49,8 +49,24 @@ button {
   letter-spacing: 0.001875rem;
 }
 
+button, input {
+  overflow: visible;
+}
+
 button[type=button] {
   cursor: pointer;
+}
+
+input[type=search]::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+[data-input=mouse] input:focus {
+  outline: 0;
+}
+
+[type=search] {
+  outline-offset: -2px;
 }
 
 nav {
@@ -111,6 +127,24 @@ input {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.overlay {
+  background-color: rgb(253, 251, 248);
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out, z-index 0.6s ease-in-out;
+  visibility: hidden;
+  z-index: 1;
+}
+.overlay.active {
+  visibility: visible;
+  opacity: 0.6;
+  z-index: 5;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -222,7 +256,7 @@ input {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 11;
+  z-index: 10;
   height: 4rem;
 }
 
@@ -282,19 +316,18 @@ input {
   padding: 0 2rem 1.2rem 0;
   white-space: nowrap;
 }
-@media only screen and (min-width: 1025px) {
-  .nav__desktop__list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
-  .nav__desktop__list li:hover .nav__item-dropdown {
-    visibility: visible;
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+.nav__desktop-dropdown {
+  background-color: rgb(242, 233, 228);
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 7.5rem 0 2.75rem 0;
+  transform: translate3d(0, -4rem, 0);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s ease-in-out;
+  z-index: -1;
 }
 .nav__mobile-btn {
   background-color: rgb(242, 233, 228);
@@ -374,10 +407,15 @@ input {
   left: 0;
   width: 100%;
   margin: 0 auto;
-  padding: 7.5rem 0 2.75rem 0;
+  padding: 3.5rem 0 2.75rem 0;
   transform: translate3d(0, -4rem, 0);
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s ease-in-out;
   z-index: -1;
+}
+.nav__item:hover .nav__item-dropdown {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 .nav__item-link {
   display: block;
@@ -387,6 +425,9 @@ input {
   border-bottom: none;
   text-transform: uppercase;
 }
+.nav__item-link.active {
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
 .nav__item-btn {
   display: block;
   font-size: 1rem;
@@ -394,10 +435,114 @@ input {
   color: inherit;
   border-bottom: none;
   text-transform: uppercase;
+  padding: 0;
+  min-height: 0;
 }
-.nav__item-btn:hover {
-  border-bottom: 1px solid;
-  text-decoration: none;
+
+.search {
+  background-color: #fdfbf8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: fixed;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out, z-index 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  width: 100%;
+  z-index: -1;
+}
+.search.active {
+  visibility: visible;
+  opacity: 1;
+  z-index: 9;
+  transform: translate3d(0, 5.75rem, 0);
+}
+.search__form {
+  margin: 0.5rem 0;
+}
+@media only screen and (min-width: 1025px) {
+  .search__form {
+    margin: 1rem 0;
+  }
+}
+.search__form-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+.search__form-input {
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+}
+.search__form-input.input__placeholder {
+  position: relative;
+  z-index: 0;
+}
+.search__form-input.input__placeholder .input {
+  background: 0 0;
+  border: 1px solid rgb(232, 232, 232);
+  text-align: left;
+  box-shadow: none;
+  transition: padding 0.1s ease-in-out;
+  font-size: 0.875rem;
+  line-height: 1.225rem;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+.search__form-input.input__placeholder .input:focus ~ label {
+  padding: 0.3125rem 0.5rem;
+  font-size: 0.625rem;
+}
+.search__form-input.input__placeholder .search__input {
+  height: 3rem;
+  background-color: #f7f7f7;
+  border-color: #f7f7f7;
+  color: rgb(0, 0, 0);
+  padding: 1.375rem 0.5rem 0.375rem;
+}
+.search__form-input.input__placeholder .search__input:focus {
+  padding: 1.375rem 0.5rem 0.375rem;
+  outline: 0;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+.search__form-input.input__placeholder label {
+  border: 1px solid transparent;
+  color: rgb(102, 102, 102);
+  display: block;
+  font-weight: 400;
+  margin: 0;
+  padding: 0.875rem 0.5rem;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: font-size 0.1s ease-in-out, padding 0.1s ease-in-out;
+  z-index: 3;
+  font-size: 0.875rem;
+  line-height: 1.225rem;
+}
+.search__form-clear {
+  height: 3rem;
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: rgb(102, 102, 102);
+  padding: 0.875rem 0.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+.search__form-clear.hide {
+  display: none;
+}
+.search__form-close {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 1025px) {
@@ -887,7 +1032,7 @@ input {
 .collection__modal-overlay {
   position: fixed;
   inset: 0px;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(253, 251, 248, 0.35);
   z-index: 100;
   font-size: 0.875rem;
   line-height: 140%;
