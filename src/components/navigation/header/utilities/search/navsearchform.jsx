@@ -78,7 +78,7 @@ export const SearchForm = ({  navSearchOn, setNavSearchOn }) => {
                         <label htmlFor='searchInput'>
                             Search
                         </label>
-                        <button type='reset' className='search__form-clear' onClick={handleClear}>
+                        <button type='reset' className={`search__form-clear ${inputValue.length > 0 ? '' : 'hide'}`} onClick={handleClear}>
                             Clear
                         </button>
                     </div>

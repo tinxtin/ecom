@@ -57,7 +57,7 @@ button[type=button] {
   cursor: pointer;
 }
 
-input[type=search] {
+input[type=search]::-webkit-search-cancel-button {
   appearance: none;
 }
 
@@ -535,6 +535,9 @@ input {
   right: 0;
   z-index: 3;
   cursor: pointer;
+}
+.search__form-clear.hide {
+  display: none;
 }
 .search__form-close {
   display: inline-flex;
