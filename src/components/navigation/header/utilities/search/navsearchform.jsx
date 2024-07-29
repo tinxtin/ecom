@@ -1,32 +1,36 @@
-import { useState, useEffect, useRef, useContext  } from 'react';
+import { useState, useEffect, useRef, useContext, useCallback } from 'react';
 import { SearchContext } from '../../../../statecontrol/searchcontext';
 import { Close } from '@mui/icons-material';
 
 export const SearchForm = ({  navSearchOn, setNavSearchOn }) => {
 
     const [searchPlaceholder, setSearchPlaceholder] = useState(false);
-    const [inputValue, setInputValue] = useState(null);
+    const [inputValue, setInputValue] = useState('');
     const inputRef = useRef(null);
 
     useEffect(() => {
         if (!navSearchOn) {
             handleClear();
         }
+
+        setTimeout(() => {
+            if (navSearchOn) {
+                inputRef.current.focus()
+                setSearchPlaceholder(true)
+            }
+        }, 100)
+
     }, [navSearchOn])
 
-    // useEffect(() => {
-    //     if (inputRef.current) {
-    //         inputRef.current.focus();
-    //     }
-    // }, [])
-
-    const handleFocus = () => {
+    const handlePlaceholder = () => {
         if (inputValue) return
-        else if (!searchPlaceholder) setSearchPlaceholder(true)
+        else if (!searchPlaceholder) {
+            setSearchPlaceholder(true);
+        }
         else setSearchPlaceholder(false)
     }
 
-    const handleInputFocus = (e) => {
+    const handleFocus = (e) => {
         if (inputValue.length > 0) {
             e.target.focus();
         } else {
@@ -44,7 +48,10 @@ export const SearchForm = ({  navSearchOn, setNavSearchOn }) => {
 
     const handleClose = (e) => {
         e.preventDefault();
-        handleClear()
+
+        if (document.activeElement === inputRef.current) {
+            inputRef.current.blur()
+        }
         setNavSearchOn(false);
     }
 
@@ -63,13 +70,12 @@ export const SearchForm = ({  navSearchOn, setNavSearchOn }) => {
                             spellCheck='off'
                             ref={inputRef}
                             value={inputValue}
-                            autoFocus={navSearchOn}
                             placeholder={searchPlaceholder ? ' Search with a keyword': undefined}
-                            onFocus={() => handleFocus()}
-                            onBlur={(e)=> {handleFocus(), handleInputFocus(e)}}
-                            onChange={handleInputChange}
+                            onFocus={() => handlePlaceholder()}
+                            onBlur={(e)=> {handlePlaceholder(), handleFocus(e)}}
+                            onChange={(e) => handleInputChange(e)}
                             />
-                        <label for='searchInput'>
+                        <label htmlFor='searchInput'>
                             Search
                         </label>
                         <button type='reset' className='search__form-clear' onClick={handleClear}>
