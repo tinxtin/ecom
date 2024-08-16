@@ -5,7 +5,7 @@ import { NavMobile } from '../mobile/navmobile';
 import { NavDesktop } from './navdesktop';
 import { NavSearch } from '../utilities/search/navsearch';
 import { NavAccount } from '../utilities/navaccount';
-import { NavBag } from '../utilities/navbag';
+import { NavBag } from '../utilities/bag/navbag';
 import { Menu } from '@mui/icons-material';
 import { Close } from '@mui/icons-material';
 
@@ -121,18 +121,18 @@ export const Nav = () => {
             </div>
             <div className='nav__content'>
                 <ul className='nav__list'>
-                    { navUtil.map(({ label, href }, i) => {
+                    { navUtil.map(({ label }, i) => {
                         if (label.toLowerCase() === 'search') {
                             return (
                                 <NavSearch key={i} {...{ label }}/>
                             )
                         } else if ( label.toLowerCase() === 'account') {
                             return (
-                                <NavAccount key={i} {...{ label, href }}/>
+                                <NavAccount key={i} {...{ label }}/>
                             )
                         } else {
                             return (
-                                <NavBag key={i} {...{ label, href }}/>
+                                <NavBag key={i} {...{ label }}/>
                             )
                         }
                     })}

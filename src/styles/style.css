@@ -545,6 +545,59 @@ input {
   cursor: pointer;
 }
 
+.bag {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  transition: visibility 1ms ease-in-out 0.3s, transform 0.3s ease-in-out;
+  transform: translate3d(100%, 0, 0);
+  z-index: 15;
+  visibility: hidden;
+}
+@media only screen and (min-width: 1025px) {
+  .bag {
+    width: 28rem;
+  }
+}
+.bag.active {
+  transform: none;
+  visibility: visible;
+  transition: transform 0.3s ease-in-out;
+}
+.bag__form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.bag__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.bag.is-empty .bag__content {
+  padding: 0;
+}
+.bag.is-empty .bag__empty {
+  background-color: rgb(242, 233, 228);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  margin-top: 0.25rem;
+  padding: 0.75rem;
+}
+.bag.is-empty .bag__empty-msg {
+  display: flex;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
 @media only screen and (min-width: 1025px) {
   .dropdown__content {
     padding: 0 4.25rem 0 5rem;
