@@ -11,7 +11,7 @@ export const NavDesktop = ({ label, href, children }) => {
         <li className='nav__item'>
             <NavRoute 
                 to={href}
-                className={({ isActive }) => isActive ? 'nav__item-link active': 'nav__item-link'}
+                className={'nav__item-link'}
                 >
                 { label }
             </NavRoute>

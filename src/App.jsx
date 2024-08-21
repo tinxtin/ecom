@@ -36,6 +36,68 @@ function App() {
     setPromoHeight(refPromo.current.clientHeight);
   })
 
+  const navData = [
+    {
+        label: 'Shop',
+        href: '/collection/all',
+        children: [
+            {
+                heading: 'dropdown content',
+                submenu: [
+                    {
+                        label: 'test1',
+                        href: '#',
+                    },
+                    {
+                        label: 'test2',
+                        href: '#',
+                    },
+                    {
+                        label: 'test3',
+                        href: '#',
+                    },
+                    {
+                        label: 'test4',
+                        href: '#',
+                    },
+                    {
+                        label: 'test5',
+                        href: '#',
+                    },
+                    {
+                        label: 'test6',
+                        href: '#',
+                    },
+                    {
+                        label: 'test7',
+                        href: '#',
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        label: 'About',
+        href: '/about'
+    },
+  ]
+
+  const navUtil = [
+    {
+        label: 'Search',
+        href: '#',
+    },
+    {
+        label: 'Account',
+        href: '#',
+    },
+    {
+        label: 'Bag',
+        href: '#',
+    },
+
+  ]
+
   return (
     <>
       <div className='promoBar' ref={refPromo}>
@@ -46,7 +108,7 @@ function App() {
           <SearchContext.Provider value={setNavSearchOn}>
             <BagContext.Provider value={setNavBagOn}>
               <ItemBagContext.Provider value={itemsInBag}>
-                <Nav />
+                <Nav {...{navData, navUtil}}/>
               </ItemBagContext.Provider>
             </BagContext.Provider>
           </SearchContext.Provider>

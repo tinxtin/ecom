@@ -6,10 +6,9 @@ import { NavDesktop } from './navdesktop';
 import { NavSearch } from '../utilities/search/navsearch';
 import { NavAccount } from '../utilities/navaccount';
 import { NavBag } from '../utilities/bag/navbag';
-import { Menu } from '@mui/icons-material';
-import { Close } from '@mui/icons-material';
+import { Menu, Close } from '@mui/icons-material';
 
-export const Nav = () => {
+export const Nav = ({ navData, navUtil}) => {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [clicked, setClicked] = useState(null);
@@ -31,68 +30,6 @@ export const Nav = () => {
             </li>
         )
     }
-
-    const navData = [
-        {
-            label: 'Shop',
-            href: '/collection/all',
-            children: [
-                {
-                    heading: 'dropdown content',
-                    submenu: [
-                        {
-                            label: 'test1',
-                            href: '#',
-                        },
-                        {
-                            label: 'test2',
-                            href: '#',
-                        },
-                        {
-                            label: 'test3',
-                            href: '#',
-                        },
-                        {
-                            label: 'test4',
-                            href: '#',
-                        },
-                        {
-                            label: 'test5',
-                            href: '#',
-                        },
-                        {
-                            label: 'test6',
-                            href: '#',
-                        },
-                        {
-                            label: 'test7',
-                            href: '#',
-                        },
-                    ]
-                }
-            ]
-        },
-        {
-            label: 'About',
-            href: '/about'
-        },
-    ]
-
-    const navUtil = [
-        {
-            label: 'Search',
-            href: '#',
-        },
-        {
-            label: 'Account',
-            href: '#',
-        },
-        {
-            label: 'Bag',
-            href: '#',
-        },
-
-    ]
 
     return (
         <nav className='nav__container container'>

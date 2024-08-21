@@ -1,12 +1,18 @@
-import { BagEmpty } from './navbagempty'
+import { BagEmpty } from './navbagempty';
+import { Close } from '@mui/icons-material';
 
 export const BagForm = ( { itemsInBag }) => {
     
     return (
        <form action="/cart" method='post' className='bag__form'>
-            <header className='bag__header'>
-                test
-            </header>
+            <div className='bag__header'>
+                <h3 className='bag__header-title'>
+                    Your bag
+                </h3>
+                <button type='button' className='btn'>
+                    <Close />
+                </button>
+            </div>
             <div className='bag__content'>
                 <div className='bag__content-info'>
 
