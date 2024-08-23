@@ -1,7 +1,7 @@
 import { BagEmpty } from './navbagempty';
 import { Close } from '@mui/icons-material';
 
-export const BagForm = ( { itemsInBag }) => {
+export const BagForm = ( { itemsInBag, setNavBagOn }) => {
     
     return (
        <form action="/cart" method='post' className='bag__form'>
@@ -9,7 +9,7 @@ export const BagForm = ( { itemsInBag }) => {
                 <h3 className='bag__header-title'>
                     Your bag
                 </h3>
-                <button type='button' className='btn'>
+                <button type='button' className='btn' onClick={() => setNavBagOn(false)}>
                     <Close />
                 </button>
             </div>

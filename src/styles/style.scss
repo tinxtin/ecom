@@ -144,10 +144,22 @@ input {
   visibility: hidden;
   z-index: 1;
 
-  &.active {
-    visibility: visible;
-    opacity: .6;
-    z-index: 5;
+  &__main {
+
+    &.active {
+      visibility: visible;
+      opacity: .6;
+      z-index: 5;
+    }
+  }
+
+  &__bag {
+
+    &.active {
+      visibility: visible;
+      opacity: .6;
+      z-index: 15;
+    }
   }
 }
 
@@ -700,8 +712,6 @@ input {
   }
 
   &__recs {
-
-    border-bottom: 1px solid rgb(216, 216, 216);
 
     &-header {
       @media (min-width: 1023px) {

@@ -141,10 +141,15 @@ input {
   visibility: hidden;
   z-index: 1;
 }
-.overlay.active {
+.overlay__main.active {
   visibility: visible;
   opacity: 0.6;
   z-index: 5;
+}
+.overlay__bag.active {
+  visibility: visible;
+  opacity: 0.6;
+  z-index: 15;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -601,9 +606,6 @@ input {
   letter-spacing: 0.5px;
   padding: 2rem 1.5rem;
   text-align: center;
-  border-bottom: 1px solid rgb(216, 216, 216);
-}
-.bag__recs {
   border-bottom: 1px solid rgb(216, 216, 216);
 }
 .bag__recs-header {

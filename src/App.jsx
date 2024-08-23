@@ -114,7 +114,8 @@ function App() {
           </SearchContext.Provider>
         </NavHoverContext.Provider>
       </header>
-      <aside className={`overlay ${navIsHovered || navSearchOn || navBagOn ? 'active' : ''}`} onClick={() => {setNavIsHovered(false), setNavSearchOn(false), setNavBagOn(false)}}/>
+      <aside className={`overlay overlay__main ${navIsHovered || navSearchOn ? 'active' : ''}`} onClick={() => {setNavIsHovered(false), setNavSearchOn(false), setNavBagOn(false)}}/>
+      <aside className={`overlay overlay__bag ${navBagOn ? 'active' : ''}`} onClick={() => {setNavBagOn(false)}}/>
       <aside className={`search ${navSearchOn ? 'active' : ''}`}>
           <SearchForm {...{ navSearchOn, setNavSearchOn }}/>
       </aside>
@@ -125,7 +126,7 @@ function App() {
         </Routes>
       </main>
       <aside className={`bag ${itemsInBag.length === 0 ? 'is-empty' : ''} ${navBagOn ? 'active' : ''}`}>
-        <BagForm {...{ itemsInBag }}/>
+        <BagForm {...{ itemsInBag, setNavBagOn }}/>
       </aside>
       <footer className='footer' style={{marginTop: '5rem'}}>
         <NavFooter/>
