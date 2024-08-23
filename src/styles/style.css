@@ -141,10 +141,15 @@ input {
   visibility: hidden;
   z-index: 1;
 }
-.overlay.active {
+.overlay__main.active {
   visibility: visible;
   opacity: 0.6;
   z-index: 5;
+}
+.overlay__bag.active {
+  visibility: visible;
+  opacity: 0.6;
+  z-index: 15;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -543,6 +548,88 @@ input {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+}
+
+.bag {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  transition: visibility 1ms ease-in-out 0.3s, transform 0.3s ease-in-out;
+  transform: translate3d(100%, 0, 0);
+  z-index: 15;
+  visibility: hidden;
+}
+@media only screen and (min-width: 1025px) {
+  .bag {
+    width: 28rem;
+  }
+}
+.bag__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid rgb(216, 216, 216);
+  padding: 1.25rem;
+}
+.bag.active {
+  transform: none;
+  visibility: visible;
+  transition: transform 0.3s ease-in-out;
+}
+.bag__form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.bag__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.bag.is-empty .bag__content {
+  padding: 0;
+}
+.bag.is-empty .bag__empty {
+  background-color: rgb(242, 233, 228);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.bag.is-empty .bag__empty-msg {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+.bag__recs-header {
+  text-transform: uppercase;
+  margin: 1.25rem 1rem -1rem;
+}
+@media (min-width: 1023px) {
+  .bag__recs-header {
+    margin-left: 1.25rem;
+  }
+}
+.bag__shop-wrapper {
+  padding: 1.25rem;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+.bag__shop-all {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.bag__swiper {
+  margin-top: 0.75rem;
+  padding: 1.25rem;
 }
 
 @media only screen and (min-width: 1025px) {

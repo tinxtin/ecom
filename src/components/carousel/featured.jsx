@@ -48,7 +48,7 @@ export const FeaturedProducts = ({ collections }) => {
                         </div>
                         <div className='item__info-bottom'>
                             <div className='item__action'>
-                                <ActionBtn className='item__quick-add' name='add' qty={product.qty}/>
+                                <ActionBtn className='item__quick-add btn' name='add' qty={product.qty}/>
                             </div>
                         </div>
                     </div>
