@@ -896,7 +896,7 @@ input {
   }
 }
 .collection__container {
-  padding-top: 1rem;
+  padding-top: 0.75rem;
 }
 .collection__grid {
   display: grid;
