@@ -1,9 +1,13 @@
-import { NavRoute } from '../../../../route/navroute'
-import { RecsCarousel } from '../../desktop/recscarousel'
-import { Collections } from '../../../../../utils/stock/all'
+import { useState } from 'react';
+import { NavRoute } from '../../../../route/navroute';
+import { RecsCarousel } from '../../desktop/recscarousel';
+import { Collections } from '../../../../../utils/stock/all';
+import { useWindowDimensions } from '../../../../window/dimensions';
 
 export const BagEmpty= () => {
     
+    const { height, width } = useWindowDimensions();
+
     return (
         <>
             <h3 className='bag__empty-msg'>
@@ -24,7 +28,7 @@ export const BagEmpty= () => {
                     You may also like
                 </h3>
                 <div className='bag__swiper'>
-                    <RecsCarousel setPerSlides={1} collections={Collections}/>
+                    <RecsCarousel setPerSlides={width<1025 ? 2:1} collections={Collections}/>
                 </div>
             </div>
         </>
