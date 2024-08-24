@@ -4,7 +4,7 @@ import ReactModal from 'react-modal';
 import { Checkbox } from './checkbox'
 ReactModal.setAppElement('#root');
 
-export const Toolbar = () => {
+export const Toolbar = ({ promoHeight }) => {
 
     const toolbarOptions = {
         Filter: {
@@ -212,7 +212,7 @@ export const Toolbar = () => {
     }
 
     return (
-        <div className='collection__toolbar'>
+        <div style={{marginTop: promoHeight}} className='collection__toolbar'>
             <div className='collection__toolbar-container container'>
                 <div className='collection__toolbar-filter'>
                     <ul className='collection__filter-list'>
