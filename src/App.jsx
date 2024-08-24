@@ -3,7 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import { PromoBar } from './components/promotion/promoBar';
 import { Nav } from './components/navigation/header/desktop/nav';
 import { Home } from './pages/main/home';
-import { Shop } from './pages/shop/all';
+import { Shop } from './pages/shop/shopall';
 import { NavFooter } from './components/navigation/footer/footerbar';
 import { NavRoute } from './components/route/navroute';
 import { NavHoverContext } from './components/statecontrol/navhovercontext';
@@ -12,6 +12,7 @@ import { BagContext } from './components/statecontrol/bagcontext';
 import { ItemBagContext } from './components/statecontrol/itembagcontext';
 import { SearchForm } from './components/navigation/header/utilities/search/navsearchform';
 import { BagForm } from './components/navigation/header/utilities/bag/navbagform';
+import { Collections } from './utils/stock/all';
 
 function App() {
  
@@ -121,8 +122,8 @@ function App() {
       </aside>
       <main className='main' style={{marginTop: promoHeight}}>
         <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/collection/all' element={<Shop/>} />
+            <Route path='/' element={<Home {...{ Collections }}/>}/>
+            <Route path='/collection/all' element={<Shop {...{promoHeight, Collections}}/>} />
         </Routes>
       </main>
       <aside className={`bag ${itemsInBag.length === 0 ? 'is-empty' : ''} ${navBagOn ? 'active' : ''}`}>

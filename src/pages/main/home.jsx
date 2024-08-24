@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import hero from '../../assets/pepper2.jpg'
-import { CustomCards } from '../../components/collection/card';
-import { Collections } from '../../utils/stock/all';
+import { HomeCards } from '../../components/collection/cardhome';
 import { RecsCarousel } from '../../components/navigation/header/desktop/recscarousel';
 import { useWindowDimensions } from '../../components/window/dimensions';
 
-export const Home = () => {
+export const Home = ({ Collections }) => {
 
     const { height, width } = useWindowDimensions();
 
@@ -30,7 +29,7 @@ export const Home = () => {
             </section>
             <section className='home__collection'>
                 <div className='home__collection-grid container'>
-                    <CustomCards collections={Collections}/>
+                    <HomeCards collections={Collections}/>
                     <button></button>
                 </div>
             </section>
