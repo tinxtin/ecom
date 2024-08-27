@@ -5,7 +5,7 @@ import { Nav } from './components/navigation/header/desktop/nav';
 import { Home } from './pages/main/home';
 import { Shop } from './pages/shop/shopall';
 import { NavFooter } from './components/navigation/footer/footerbar';
-import { NavRoute } from './components/route/navroute';
+import { SiteRoute } from './components/route/siteroute';
 import { NavHoverContext } from './components/statecontrol/navhovercontext';
 import { SearchContext } from './components/statecontrol/searchcontext';
 import { BagContext } from './components/statecontrol/bagcontext';

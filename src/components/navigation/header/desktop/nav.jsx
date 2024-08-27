@@ -1,6 +1,6 @@
 import { useMatch, useResolvedPath, NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef, useContext  } from 'react';
-import { NavRoute } from '../../../route/navroute';
+import { SiteRoute } from '../../../route/siteroute';
 import { NavMobile } from '../mobile/navmobile';
 import { NavDesktop } from './navdesktop';
 import { NavSearch } from '../utilities/search/navsearch';
@@ -52,9 +52,9 @@ export const Nav = ({ navData, navUtil}) => {
                 </ul>
             </div>
             <div className='nav__content'>
-                <NavRoute to='/'>
+                <SiteRoute to='/'>
                     Logo
-                </NavRoute>
+                </SiteRoute>
             </div>
             <div className='nav__content'>
                 <ul className='nav__list'>

@@ -1,4 +1,4 @@
-import { NavRoute } from '../route/navroute'
+import { SiteRoute } from '../route/siteroute'
 
 export const Newsletter = () => {
     
@@ -24,9 +24,9 @@ export const Newsletter = () => {
                                 <p className='newsletter__privacy'>
                                     <span className='newsletter__privacy-text'>
                                         You can unsubscribe anytime. For more detail, visit our{' '}
-                                        <NavRoute to='/' className={'newsletter__privacy-link'}>
+                                        <SiteRoute to='/' className={'newsletter__privacy-link'}>
                                             Privacy Policy
-                                        </NavRoute>
+                                        </SiteRoute>
                                     </span>
                                 </p>
                             </div>

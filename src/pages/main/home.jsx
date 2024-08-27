@@ -4,6 +4,7 @@ import hero from '../../assets/pepper2.jpg'
 import { HomeCards } from '../../components/collection/cardhome';
 import { RecsCarousel } from '../../components/navigation/header/desktop/recscarousel';
 import { useWindowDimensions } from '../../components/window/dimensions';
+import { PromoBlock } from '../../components/promotion/promoblock';
 
 export const Home = ({ Collections }) => {
 
@@ -19,6 +20,9 @@ export const Home = ({ Collections }) => {
                         </div>
                     </div>
                 </Link>
+                <div className='home__hero-promo'>
+                    <PromoBlock setClass={'home'}/>
+                </div>
             </section>
             <section className='home__carousel'>
                 <div className='featured__products'>

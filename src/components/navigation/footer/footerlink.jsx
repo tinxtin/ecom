@@ -1,4 +1,4 @@
-import { NavRoute } from '../../route/navroute';
+import { SiteRoute } from '../../route/siteroute';
 import { Instagram, Facebook, Pinterest, YouTube } from '@mui/icons-material/';
 
 export const FooterNav = () => {
@@ -72,18 +72,18 @@ export const FooterNav = () => {
                             if ( link.icon ) {
                                 return (
                                     <li className='footer__nav-item' key={i}>
-                                        <NavRoute to='/' className='footer__nav-link'>
+                                        <SiteRoute to='/' className='footer__nav-link'>
                                             { link.icon }
                                             <span className='footer__nav-label'>{ link.label }</span>
-                                        </NavRoute>
+                                        </SiteRoute>
                                     </li>
                                 )
                             } else {
                                 return (
                                     <li className='footer__nav-item' key={i}>
-                                        <NavRoute to='/' className={'footer__nav-link'}>
+                                        <SiteRoute to='/' className={'footer__nav-link'}>
                                             { link.label }
-                                        </NavRoute>
+                                        </SiteRoute>
                                     </li>
                                 )
                             }
