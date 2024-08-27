@@ -28,7 +28,7 @@ export const BagEmpty= () => {
                     You may also like
                 </h3>
                 <div className='bag__swiper'>
-                    <RecsCarousel setPerSlides={width<1025 ? 2:1} collections={Collections}/>
+                    <RecsCarousel setLoop={false} setPerSlides={width<1025 ? 2:1} collections={Collections}/>
                 </div>
             </div>
         </>

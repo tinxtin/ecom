@@ -23,7 +23,7 @@ export const Home = ({ Collections }) => {
             <section className='home__carousel'>
                 <div className='featured__products'>
                     <ul className='featured__products-list container'>
-                        <RecsCarousel setNavigation={true} setPerSlides={4} collections={Collections}/>
+                        <RecsCarousel setLoop={true} setPerSlides={4} collections={Collections}/>
                     </ul>
                 </div>
             </section>
