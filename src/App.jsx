@@ -129,7 +129,7 @@ function App() {
       <aside className={`bag ${itemsInBag.length === 0 ? 'is-empty' : ''} ${navBagOn ? 'active' : ''}`}>
         <BagForm {...{ itemsInBag, setNavBagOn }}/>
       </aside>
-      <footer className='footer' style={{marginTop: '5rem'}}>
+      <footer className='footer' style={{marginTop: '4rem'}}>
         <NavFooter/>
       </footer>
     </>

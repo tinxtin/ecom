@@ -31,7 +31,7 @@ export const Home = ({ Collections }) => {
                     </ul>
                 </div>
             </section>
-            <section className='home__collection'>
+            <section className='home__collection' style={{marginTop: '4rem'}}>
                 <div className='home__collection-grid container'>
                     <HomeCards collections={Collections}/>
                     <button></button>

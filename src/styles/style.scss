@@ -220,6 +220,7 @@ p {
   min-height: 2.5rem;
   transition: font-size .4s ease-in-out;
   box-sizing: border-box;
+  cursor: pointer;
 
   &__fullsize {
     width: 100%;
@@ -918,6 +919,10 @@ p {
           gap: 1rem;
           margin-top: .5rem;
         }
+
+        &-btn {
+          pointer-events: auto;
+        }
     }
 
   &__collection {
@@ -927,7 +932,6 @@ p {
       grid-template-columns: 1fr 1fr;
       grid-gap: .75rem;
       grid-auto-rows: 1fr;
-      padding-top: 4rem;
     }
   }
 }
