@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavRoute } from '../../../../route/navroute';
+import { SiteRoute } from '../../../../route/siteroute';
 import { RecsCarousel } from '../../desktop/recscarousel';
 import { Collections } from '../../../../../utils/stock/all';
 import { useWindowDimensions } from '../../../../window/dimensions';
@@ -16,12 +16,12 @@ export const BagEmpty= () => {
                 Explore our categories!
             </h3>
             <div className='bag__shop-wrapper'>
-                <NavRoute 
+                <SiteRoute 
                     to={'/collection/all'}
                     className={'bag__shop-all btn'}
                     >
                     Shop All
-                </NavRoute>
+                </SiteRoute>
             </div>
             <div className='bag__recs'>
                 <h3 className='bag__recs-header'>

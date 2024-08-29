@@ -5,7 +5,7 @@ import { Nav } from './components/navigation/header/desktop/nav';
 import { Home } from './pages/main/home';
 import { Shop } from './pages/shop/shopall';
 import { NavFooter } from './components/navigation/footer/footerbar';
-import { NavRoute } from './components/route/navroute';
+import { SiteRoute } from './components/route/siteroute';
 import { NavHoverContext } from './components/statecontrol/navhovercontext';
 import { SearchContext } from './components/statecontrol/searchcontext';
 import { BagContext } from './components/statecontrol/bagcontext';
@@ -129,7 +129,7 @@ function App() {
       <aside className={`bag ${itemsInBag.length === 0 ? 'is-empty' : ''} ${navBagOn ? 'active' : ''}`}>
         <BagForm {...{ itemsInBag, setNavBagOn }}/>
       </aside>
-      <footer className='footer' style={{marginTop: '5rem'}}>
+      <footer className='footer' style={{marginTop: '4rem'}}>
         <NavFooter/>
       </footer>
     </>

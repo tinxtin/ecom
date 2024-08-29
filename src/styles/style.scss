@@ -106,6 +106,14 @@ input {
   margin: 0;
 }
 
+p {
+  font-family: Apercu, Gill Sans, sans-serif;
+  font-weight: 400;
+  margin: 0 0 1rem;
+  font-size: .875rem;
+  line-height: 1.225rem;
+}
+
 .main {
   display: block;
   position: relative;
@@ -212,6 +220,7 @@ input {
   min-height: 2.5rem;
   transition: font-size .4s ease-in-out;
   box-sizing: border-box;
+  cursor: pointer;
 
   &__fullsize {
     width: 100%;
@@ -669,9 +678,6 @@ input {
     border-bottom: 1px solid rgb(216, 216, 216);
     padding: 1.25rem;
 
-    &-title {
-
-    }
   }
 
   &.active {
@@ -797,6 +803,14 @@ input {
   }
 }
 
+.headline {
+  margin: 0;
+  font-weight: 400;
+  font-size: .75rem;
+  letter-spacing: .0025rem;
+  line-height: 1.275rem;
+}
+
 .home {
 
 	&__hero {
@@ -832,6 +846,83 @@ input {
               max-height: calc(var(--max-hero-height, 1vh) * 100);
             }
         }
+
+        &-promo {
+          display: flex;
+          flex-flow: column nowrap;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+
+          @media only screen and (min-width: 1281px) {
+            gap: 3.5rem;
+          }
+        }
+
+        &-block {
+          display: flex;
+          position: relative;
+          flex-flow: row nowrap;
+          height: 100%;
+          margin-top: 5rem;
+          align-items: flex-start;
+
+          @media screen and (min-width: 1025px) {
+            padding: 0px 1rem 1rem 1rem;
+          }
+        }
+
+        &-content {
+          background-color: rgb(255, 255, 255);
+          display: flex;
+          flex-flow: column nowrap;
+          position: relative;
+          width: 100%;
+          pointer-events: none;
+          z-index: 2;
+
+          @media screen and (min-width: 1025px) {
+            padding: 1rem;;
+          }
+
+          @media only screen and (min-width: 768px) {
+            max-width: 22rem;
+          }
+        }
+
+        &-header {
+          text-transform: uppercase;
+          margin-top: .5rem;
+          margin-bottom: .5rem;
+
+          @media only screen and (min-width: 768px) {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+          }
+        }
+
+        &-desc {
+          font-size: .875rem;
+          line-height: 1.225rem;
+          margin-bottom: .5rem;
+
+          p {
+            margin: 0;
+          }
+        }
+
+        &-action {
+          display: flex;
+          flex-flow: row nowrap;
+          gap: 1rem;
+          margin-top: .5rem;
+        }
+
+        &-btn {
+          pointer-events: auto;
+        }
     }
 
   &__collection {
@@ -841,7 +932,6 @@ input {
       grid-template-columns: 1fr 1fr;
       grid-gap: .75rem;
       grid-auto-rows: 1fr;
-      padding-top: 4rem;
     }
   }
 }
@@ -907,7 +997,7 @@ input {
       line-height: 140%;
       cursor: pointer;
       outline: none;
-      -webkit-appearance: none;
+      // -webkit-appearance: none;
       }
 
     &-btn {
@@ -1269,9 +1359,9 @@ input {
     }
   }
 
-  &__product {
+  // &__product {
 
-  }
+  // }
 }
 
 .footer {

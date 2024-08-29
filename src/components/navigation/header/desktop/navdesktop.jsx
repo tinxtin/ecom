@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useContext  } from 'react';
 import { NavCarousel } from './navcarousel';
-import { NavRoute } from '../../../route/navroute';
+import { SiteRoute } from '../../../route/siteroute';
 import { NavHoverContext } from '../../../statecontrol/navhovercontext';
 
 export const NavDesktop = ({ label, href, children }) => {
@@ -9,12 +9,12 @@ export const NavDesktop = ({ label, href, children }) => {
 
     return (
         <li className='nav__item'>
-            <NavRoute 
+            <SiteRoute 
                 to={href}
                 className={'nav__item-link'}
                 >
                 { label }
-            </NavRoute>
+            </SiteRoute>
                 {children &&
                     <div className='nav__item-dropdown' onMouseOver={() => setIsNavHovered(true)} onMouseOut={() => setIsNavHovered(false)}>
                         <NavCarousel sub={children}/>
