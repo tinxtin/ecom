@@ -104,7 +104,7 @@ function App() {
       <div className='promoBar' ref={refPromo}>
         <PromoBar/>
       </div>
-      <header className='header' style={{marginTop: promoHeight}}>
+      <header className='header'>
         <NavHoverContext.Provider value={setNavIsHovered}>
           <SearchContext.Provider value={setNavSearchOn}>
             <BagContext.Provider value={setNavBagOn}>
@@ -120,7 +120,7 @@ function App() {
       <aside className={`search ${navSearchOn ? 'active' : ''}`}>
           <SearchForm {...{ navSearchOn, setNavSearchOn }}/>
       </aside>
-      <main className='main' style={{marginTop: promoHeight}}>
+      <main className='main'>
         <Routes>
             <Route path='/' element={<Home {...{ Collections }}/>}/>
             <Route path='/collection/all' element={<Shop {...{promoHeight, Collections}}/>} />
