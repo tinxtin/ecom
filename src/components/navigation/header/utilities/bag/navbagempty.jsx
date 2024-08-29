@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { SiteRoute } from '../../../../route/siteroute';
-import { RecsCarousel } from '../../desktop/recscarousel';
+import { RecsCarousel } from '../../../../carousel/recscarousel';
 import { Collections } from '../../../../../utils/stock/all';
 import { useWindowDimensions } from '../../../../window/dimensions';
 
