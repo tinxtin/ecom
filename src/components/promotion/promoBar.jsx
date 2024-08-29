@@ -13,7 +13,7 @@ export const PromoBar = () => {
       },
       {
         type: 'Promotion',
-        value: 'New seasonal arrivals is here, and you can only get it here.'
+        value: 'New seasonal product has arrived! And you can only get it here.'
       }
     ]
 

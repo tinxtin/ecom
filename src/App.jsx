@@ -35,7 +35,9 @@ function App() {
 
   useEffect(() => {
     setPromoHeight(refPromo.current.clientHeight);
-  })
+  },[])
+
+  console.log(promoHeight)
 
   const navData = [
     {

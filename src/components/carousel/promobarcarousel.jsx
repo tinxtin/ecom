@@ -4,14 +4,13 @@ import { Autoplay } from 'swiper/modules';
 
 export const PromoCarousel = ({ barData }) => {
 
-    barData.map((i) => console.log(i.value))
-
     return (
         <div className='swiper__viewport'>
             <Swiper
+                key={barData}
                 slidesPerView={1}
                 autoplay={{
-                    delay: 5000,
+                    delay: 8000,
                     disableOnInteraction: false,
                 }}
                 loop={true}
