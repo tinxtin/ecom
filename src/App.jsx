@@ -107,21 +107,24 @@ function App() {
         <PromoBar/>
       </div>
       <header className='header'>
-        <NavHoverContext.Provider value={setNavIsHovered}>
-          <SearchContext.Provider value={setNavSearchOn}>
-            <BagContext.Provider value={setNavBagOn}>
-              <ItemBagContext.Provider value={itemsInBag}>
-                <Nav {...{navData, navUtil}}/>
-              </ItemBagContext.Provider>
-            </BagContext.Provider>
-          </SearchContext.Provider>
-        </NavHoverContext.Provider>
+        <div className='header__wrapper'>
+          <NavHoverContext.Provider value={setNavIsHovered}>
+            <SearchContext.Provider value={setNavSearchOn}>
+              <BagContext.Provider value={setNavBagOn}>
+                <ItemBagContext.Provider value={itemsInBag}>
+                  <Nav {...{navData, navUtil}}/>
+                  <div className={`search ${navSearchOn ? 'active' : ''}`}>
+                      <SearchForm {...{ navSearchOn, setNavSearchOn }}/>
+                      <div className={`overlay overlay__search ${navSearchOn ? 'active' : ''}`} onClick={() => {setNavIsHovered(false), setNavSearchOn(false), setNavBagOn(false)}}/>
+                  </div>
+                </ItemBagContext.Provider>
+              </BagContext.Provider>
+            </SearchContext.Provider>
+          </NavHoverContext.Provider>
+        </div>
       </header>
-      <aside className={`overlay overlay__main ${navIsHovered || navSearchOn ? 'active' : ''}`} onClick={() => {setNavIsHovered(false), setNavSearchOn(false), setNavBagOn(false)}}/>
+      <aside className={`overlay overlay__main ${navIsHovered ? 'active' : ''}`} onClick={() => {setNavIsHovered(false), setNavSearchOn(false), setNavBagOn(false)}}/>
       <aside className={`overlay overlay__bag ${navBagOn ? 'active' : ''}`} onClick={() => {setNavBagOn(false)}}/>
-      <aside className={`search ${navSearchOn ? 'active' : ''}`}>
-          <SearchForm {...{ navSearchOn, setNavSearchOn }}/>
-      </aside>
       <main className='main'>
         <Routes>
             <Route path='/' element={<Home {...{ Collections }}/>}/>
