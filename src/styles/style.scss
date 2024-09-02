@@ -116,9 +116,8 @@ p {
 
 .main {
   display: block;
-  position: relative;
+  // position: relative;
   width: 100%;
-  padding-top: 4rem;
 }
 
 .screenreader {
@@ -140,7 +139,7 @@ p {
 }
 
 .overlay {
-  background-color: rgb(253, 251, 248);
+  background-color: rgb(0, 0, 0);
   height: 100vh;
   width: 100vw;
   left: 0;
@@ -148,11 +147,14 @@ p {
   position: fixed;
   top: 0;
   // -webkit-transition: opacity .5s ease-in-out, visibility .5s ease-in-out, z-index .5s ease-in-out;
-  transition: opacity .6s ease-in-out, visibility .6s ease-in-out, z-index .6s ease-in-out;
+  transition: 
+            opacity .4s ease-in-out, 
+            visibility .4s ease-in-out, 
+            z-index .4s ease-in-out;
   visibility: hidden;
   z-index: 1;
 
-  &__main {
+  &__main, &__bag {
 
     &.active {
       visibility: visible;
@@ -161,12 +163,14 @@ p {
     }
   }
 
-  &__bag {
+  &__search {
+    position: relative;
+    width: 100%;
 
     &.active {
       visibility: visible;
       opacity: .6;
-      z-index: 15;
+      z-index: 5;
     }
   }
 }
@@ -257,10 +261,8 @@ p {
 .promoBar {
 	background-color: rgb(0, 0, 0);
 	color: rgb(255, 255, 255);
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 10;
+  border: 0;
+  vertical-align: baseline;
 
 	&__container {
 		padding-top: 0.25rem;
@@ -274,6 +276,7 @@ p {
 			margin: 0;
 			font-size: 0.75rem;
 			line-height: 1.05rem;
+      pointer-events: none;
 
 			@media only screen and (min-width: 1024px) {
 				font-size: 0.875rem;
@@ -286,11 +289,18 @@ p {
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   background-color: rgb(242, 233, 228);
-  position: fixed;
+  position: sticky;
+
   width: 100%;
   top: 0;
   z-index: 10;
-  height: 4rem;
+
+  &__wrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+
+  }
 }
 
 .hide {
@@ -525,26 +535,28 @@ p {
 
     background-color: #fdfbf8;
     border-bottom: 1px solid rgba(0, 0, 0, .06);
-    position: fixed;
+    position: absolute;
+    top: 0;
     left: 0;
     opacity: 0;
     visibility: hidden;
     // -webkit-transform: translate3d(0, -100%, 0);
     // transform: translate3d(0, -4rem, 0);
     // -webkit-transition: background-color .5s ease-in-out, z-index .5s ease-in-out, -webkit-transform .5s ease-in-out;
-    transition: background-color .5s ease-in-out, 
-                transform .5s ease-in-out, 
-                z-index .5s ease-in-out, 
-                opacity .5s ease-in-out, 
-                visibility .5s ease-in-out;
+    // transition:  
+    //             // transform .5s ease-in-out, 
+    //             z-index .4s ease-in-out, 
+    //             opacity .4s ease-in-out, 
+    //             visibility .4s ease-in-out;
     width: 100%;
+    height: 5rem;
     z-index: -1;
 
     &.active {
       visibility: visible;
       opacity: 1;
-      z-index: 9;
-      transform: translate3d(0, 5.75rem, 0);
+      z-index: 10;
+      // transform: translate3d(0, 5.75rem, 0);
     }
 
     &__form {
@@ -939,11 +951,15 @@ p {
 .collection {
   display: block;
   position: relative;
-  padding-top: 2.5rem;
+
+  &__header {
+    @media only screen and (min-width: 1024px) {
+      padding-top: 20px;
+    }
+  }
 
   &__toolbar {
     background-color: rgb(232, 232, 232);
-    position: fixed;
     height: 2.5rem;
     top: 4rem;
     width: 100%;

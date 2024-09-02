@@ -35,7 +35,9 @@ function App() {
 
   useEffect(() => {
     setPromoHeight(refPromo.current.clientHeight);
-  })
+  },[])
+
+  console.log(promoHeight)
 
   const navData = [
     {
@@ -104,26 +106,29 @@ function App() {
       <div className='promoBar' ref={refPromo}>
         <PromoBar/>
       </div>
-      <header className='header' style={{marginTop: promoHeight}}>
-        <NavHoverContext.Provider value={setNavIsHovered}>
-          <SearchContext.Provider value={setNavSearchOn}>
-            <BagContext.Provider value={setNavBagOn}>
-              <ItemBagContext.Provider value={itemsInBag}>
-                <Nav {...{navData, navUtil}}/>
-              </ItemBagContext.Provider>
-            </BagContext.Provider>
-          </SearchContext.Provider>
-        </NavHoverContext.Provider>
+      <header className='header'>
+        <div className='header__wrapper'>
+          <NavHoverContext.Provider value={setNavIsHovered}>
+            <SearchContext.Provider value={setNavSearchOn}>
+              <BagContext.Provider value={setNavBagOn}>
+                <ItemBagContext.Provider value={itemsInBag}>
+                  <Nav {...{navData, navUtil}}/>
+                  <div className={`search ${navSearchOn ? 'active' : ''}`}>
+                      <SearchForm {...{ navSearchOn, setNavSearchOn }}/>
+                      <div className={`overlay overlay__search ${navSearchOn ? 'active' : ''}`} onClick={() => {setNavIsHovered(false), setNavSearchOn(false), setNavBagOn(false)}}/>
+                  </div>
+                </ItemBagContext.Provider>
+              </BagContext.Provider>
+            </SearchContext.Provider>
+          </NavHoverContext.Provider>
+        </div>
       </header>
-      <aside className={`overlay overlay__main ${navIsHovered || navSearchOn ? 'active' : ''}`} onClick={() => {setNavIsHovered(false), setNavSearchOn(false), setNavBagOn(false)}}/>
+      <aside className={`overlay overlay__main ${navIsHovered ? 'active' : ''}`} onClick={() => {setNavIsHovered(false), setNavSearchOn(false), setNavBagOn(false)}}/>
       <aside className={`overlay overlay__bag ${navBagOn ? 'active' : ''}`} onClick={() => {setNavBagOn(false)}}/>
-      <aside className={`search ${navSearchOn ? 'active' : ''}`}>
-          <SearchForm {...{ navSearchOn, setNavSearchOn }}/>
-      </aside>
-      <main className='main' style={{marginTop: promoHeight}}>
+      <main className='main'>
         <Routes>
             <Route path='/' element={<Home {...{ Collections }}/>}/>
-            <Route path='/collection/all' element={<Shop {...{promoHeight, Collections}}/>} />
+            <Route path='/collection/all' element={<Shop {...{ Collections }}/>} />
         </Routes>
       </main>
       <aside className={`bag ${itemsInBag.length === 0 ? 'is-empty' : ''} ${navBagOn ? 'active' : ''}`}>

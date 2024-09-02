@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import hero from '../../assets/pepper2.jpg'
 import { HomeCards } from '../../components/collection/cardhome';
-import { RecsCarousel } from '../../components/navigation/header/desktop/recscarousel';
+import { RecsCarousel } from '../../components/carousel/recscarousel';
 import { useWindowDimensions } from '../../components/window/dimensions';
 import { PromoBlock } from '../../components/promotion/promoblock';
 
