@@ -116,9 +116,8 @@ p {
 
 .main {
   display: block;
-  position: relative;
+  // position: relative;
   width: 100%;
-  padding-top: 4rem;
 }
 
 .screenreader {
@@ -879,7 +878,7 @@ p {
           position: relative;
           flex-flow: row nowrap;
           height: 100%;
-          margin-top: 1rem;
+          margin-top: 5rem;
           align-items: flex-start;
 
           @media screen and (min-width: 1025px) {
@@ -952,11 +951,15 @@ p {
 .collection {
   display: block;
   position: relative;
-  padding-top: 2.5rem;
+
+  &__header {
+    @media only screen and (min-width: 1024px) {
+      padding-top: 20px;
+    }
+  }
 
   &__toolbar {
     background-color: rgb(232, 232, 232);
-    position: fixed;
     height: 2.5rem;
     top: 4rem;
     width: 100%;

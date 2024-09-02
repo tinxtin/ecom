@@ -128,7 +128,7 @@ function App() {
       <main className='main'>
         <Routes>
             <Route path='/' element={<Home {...{ Collections }}/>}/>
-            <Route path='/collection/all' element={<Shop {...{promoHeight, Collections}}/>} />
+            <Route path='/collection/all' element={<Shop {...{ Collections }}/>} />
         </Routes>
       </main>
       <aside className={`bag ${itemsInBag.length === 0 ? 'is-empty' : ''} ${navBagOn ? 'active' : ''}`}>
