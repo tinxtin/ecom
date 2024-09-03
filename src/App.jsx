@@ -37,8 +37,6 @@ function App() {
     setPromoHeight(refPromo.current.clientHeight);
   },[])
 
-  console.log(promoHeight)
-
   const navData = [
     {
         label: 'Shop',
