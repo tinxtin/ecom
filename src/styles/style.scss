@@ -1038,6 +1038,11 @@ p {
       display: flex;
       white-space: nowrap;
     }
+
+    &-link {
+      line-height: 1.125rem;
+      padding: .3rem .6rem .375rem;
+    }
   }
 
   &__modal {

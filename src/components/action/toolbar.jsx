@@ -2,6 +2,7 @@ import { useState, useEffect, useRef  } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import ReactModal from 'react-modal';
 import { Checkbox } from './checkbox'
+import { SiteRoute } from '../route/siteroute';
 ReactModal.setAppElement('#root');
 
 export const Toolbar = () => {
@@ -233,17 +234,22 @@ export const Toolbar = () => {
         )
     }
 
-    function CategoriesTool({}) {
+    function CategoriesTool({ href }) {
 
         const [selectedCategory, setSelectedCategory] = useState(null);
 
         return (
             <ul className='collection__categories-list'>
-                {Object.values(categoryOptions).map(sub => {
-                    return sub.map((category, i) => {
+                { Object.values(categoryOptions).map(sub => {
+                    return sub.map(( category, i ) => {
                         return (
                             <li className='collection__categories-item' key={i}>
-                                {category.name}
+                                <SiteRoute 
+                                    to={'/'}
+                                    className={'collection__categories-link'}
+                                    >
+                                    { category.name }
+                                </SiteRoute>
                             </li>
                         )
                     })

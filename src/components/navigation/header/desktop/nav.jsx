@@ -20,17 +20,6 @@ export const Nav = ({ navData, navUtil}) => {
         setClicked(idx);
     };
 
-    function NavModal({ children }) {
-        
-        return (
-            <li className='nav__item'>
-                <button type='button' onClick={OpenNavModal} className='nav__item-btn btn__link'>
-                    { children }
-                </button>
-            </li>
-        )
-    }
-
     return (
         <nav className='nav__container container'>
             <div className='nav__content hide__desktop'>
