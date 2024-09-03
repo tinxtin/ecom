@@ -968,14 +968,20 @@ p {
     &-container {
       display: flex;
       align-items: center;
-      justify-content: end;
+      justify-content: space-between;
       overflow: hidden;
       height: 2.5rem;
       width: 100%;
     }
+
+    &-categories {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
-  &__filter {
+  &__filter, &__categories {
 
     &-list {
       display: flex;
@@ -1018,6 +1024,19 @@ p {
 
     &-btn {
       display: inline-flex;
+    }
+  }
+
+  &__categories {
+
+    &-title {
+      color: rgb(102, 102, 102);
+      font-size: .875rem;
+    }
+
+    &-list {
+      display: flex;
+      white-space: nowrap;
     }
   }
 
