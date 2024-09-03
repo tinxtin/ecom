@@ -3,7 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import { PromoBar } from './components/promotion/promoBar';
 import { Nav } from './components/navigation/header/desktop/nav';
 import { Home } from './pages/main/home';
-import { Shop } from './pages/shop/shopall';
+import { Shop } from './pages/shop/shop';
 import { NavFooter } from './components/navigation/footer/footerbar';
 import { SiteRoute } from './components/route/siteroute';
 import { NavHoverContext } from './components/statecontrol/navhovercontext';
@@ -36,8 +36,6 @@ function App() {
   useEffect(() => {
     setPromoHeight(refPromo.current.clientHeight);
   },[])
-
-  console.log(promoHeight)
 
   const navData = [
     {
@@ -98,6 +96,10 @@ function App() {
         label: 'Bag',
         href: '#',
     },
+
+  ]
+
+  const shopData = [
 
   ]
 

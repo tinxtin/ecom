@@ -2,9 +2,32 @@ import { useState, useEffect, useRef  } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import ReactModal from 'react-modal';
 import { Checkbox } from './checkbox'
+import { SiteRoute } from '../route/siteroute';
 ReactModal.setAppElement('#root');
 
 export const Toolbar = () => {
+
+
+    const categoryOptions = {
+        Categories: [
+            {
+                name: 'All',
+                checked: false,
+            },
+            {
+                name: 'Face',
+                checked: false,
+            },
+            {
+                name: 'Lip',
+                checked: false,
+            },
+            {
+                name: 'Eye',
+                checked: false,
+            },
+        ]
+    }
 
     const toolbarOptions = {
         Filter: {
@@ -211,9 +234,36 @@ export const Toolbar = () => {
         )
     }
 
+    function CategoriesTool({ href }) {
+
+        const [selectedCategory, setSelectedCategory] = useState(null);
+
+        return (
+            <ul className='collection__categories-list'>
+                { Object.values(categoryOptions).map(sub => {
+                    return sub.map(( category, i ) => {
+                        return (
+                            <li className='collection__categories-item' key={i}>
+                                <SiteRoute 
+                                    to={'/'}
+                                    className={'collection__categories-link'}
+                                    >
+                                    { category.name }
+                                </SiteRoute>
+                            </li>
+                        )
+                    })
+                })}
+            </ul>
+        )
+    }
+
     return (
         <div className='collection__toolbar'>
             <div className='collection__toolbar-container container'>
+                <div className='collection__toolbar-categories'>
+                    <CategoriesTool />
+                </div>
                 <div className='collection__toolbar-filter'>
                     <ul className='collection__filter-list'>
                         { Object.entries(toolbarOptions).map(([ tool, sub ], i) => {

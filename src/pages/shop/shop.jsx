@@ -2,7 +2,7 @@ import { Toolbar } from '../../components/action/toolbar';
 import { ProductCard } from '../../components/collection/cardproduct';
 
 export const Shop = ({ Collections }) => {
-    
+
     return (
         <>
             <section className='collection'>
@@ -14,7 +14,9 @@ export const Shop = ({ Collections }) => {
                 <Toolbar />
                 <div className='collection__container container'>
                     <ul className='collection__grid'>
-                        {Object.values(Collections).map((arr) => arr.map((product, i ) => <ProductCard key={i} {...{product}}/>))}
+                        {Object.values(Collections).map(( topValues ) => 
+                            Object.values(topValues).map(( lowerValues ) => 
+                                lowerValues.map(( product, i ) => <ProductCard key={i} {...{ product }}/>)))}
                     </ul>
                 </div>
             </section>   

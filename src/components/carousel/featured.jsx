@@ -7,13 +7,15 @@ import { ProductCard } from '../collection/cardproduct';
 export const FeaturedProducts = ({ collections }) => {
 
     let featured = []
-    for (const value of Object.values(collections)) {
-        value.forEach(item => {
-            if (item.inFeature === true) {
-                featured.push(item)
-            }
-        })
-    }
+    Object.values(collections).map(arr => {
+        for (const value of Object.values(arr)) {
+            value.forEach(item => {
+                if (item.inFeature === true) {
+                    featured.push(item)
+                }
+            })
+        }
+    })
 
     return featured.map(( product, i ) => {
         return (
