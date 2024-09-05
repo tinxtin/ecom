@@ -1,7 +1,17 @@
 import { Toolbar } from '../../components/action/toolbar';
 import { ProductCard } from '../../components/collection/cardproduct';
+import { Routes, Route, Link } from "react-router-dom";
+import { All } from './face'
 
-export const Shop = ({ Collections }) => {
+
+export const Shop = ({ Collections, navData }) => {
+
+    let categoryData = [];
+    navData.map(({ use }, i) => {
+        {use.category &&
+            categoryData.push(navData[i])
+        }
+    })
 
     return (
         <>
@@ -11,7 +21,7 @@ export const Shop = ({ Collections }) => {
                         Shop All
                     </h3>
                 </div>
-                <Toolbar />
+                <Toolbar {...{ categoryData }}/>
                 <div className='collection__container container'>
                     <ul className='collection__grid'>
                         {Object.values(Collections).map(( topValues ) => 

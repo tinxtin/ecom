@@ -3,7 +3,9 @@ import { NavCarousel } from './navcarousel';
 import { SiteRoute } from '../../../route/siteroute';
 import { NavHoverContext } from '../../../statecontrol/navhovercontext';
 
-export const NavDesktop = ({ label, href, children }) => {
+export const NavDesktop = ({ label, use, href, children }) => {
+
+    console.log(use)
 
     const setIsNavHovered = useContext(NavHoverContext)
 

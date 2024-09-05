@@ -5,29 +5,7 @@ import { Checkbox } from './checkbox'
 import { SiteRoute } from '../route/siteroute';
 ReactModal.setAppElement('#root');
 
-export const Toolbar = () => {
-
-
-    const categoryOptions = {
-        Categories: [
-            {
-                name: 'All',
-                checked: false,
-            },
-            {
-                name: 'Face',
-                checked: false,
-            },
-            {
-                name: 'Lip',
-                checked: false,
-            },
-            {
-                name: 'Eye',
-                checked: false,
-            },
-        ]
-    }
+export const Toolbar = ({ categoryData }) => {
 
     const toolbarOptions = {
         Filter: {
@@ -234,25 +212,25 @@ export const Toolbar = () => {
         )
     }
 
-    function CategoriesTool({ href }) {
+    console.log(categoryData)
+
+    function CategoriesTool() {
 
         const [selectedCategory, setSelectedCategory] = useState(null);
 
         return (
             <ul className='collection__categories-list'>
-                { Object.values(categoryOptions).map(sub => {
-                    return sub.map(( category, i ) => {
-                        return (
-                            <li className='collection__categories-item' key={i}>
-                                <SiteRoute 
-                                    to={'/'}
-                                    className={'collection__categories-link'}
-                                    >
-                                    { category.name }
-                                </SiteRoute>
-                            </li>
-                        )
-                    })
+                { categoryData.map(({href, label}, i) => {
+                    return (
+                        <li className='collection__categories-item' key={i}>
+                            <SiteRoute 
+                                to={`${href}`}
+                                className={'collection__categories-link'}
+                                >
+                                { label }
+                            </SiteRoute>
+                        </li>
+                    )
                 })}
             </ul>
         )

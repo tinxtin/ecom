@@ -40,6 +40,10 @@ function App() {
   const navData = [
     {
         label: 'Shop',
+        use: {
+            navigation: true,
+            category: false,
+        },
         href: '/collection/all',
         children: [
             {
@@ -78,7 +82,43 @@ function App() {
         ]
     },
     {
+        label: 'All',
+        use: {
+          navigation: false,
+          category: true,
+      },
+        href: '/collection/all',
+    },
+    {
+        label: 'Face',
+        use: {
+          navigation: false,
+          category: true,
+      },
+        href: '/collection/face',
+    },
+    {
+        label: 'Lip',
+        use: {
+          navigation: false,
+          category: true,
+      },
+        href: '/collection/lip',
+    },
+    {
+        label: 'Eye',
+        use: {
+          navigation: false,
+          category: true,
+      },
+        href: '/collection/eye',
+    },
+    {
         label: 'About',
+        use: {
+          navigation: true,
+          category: false,
+      },
         href: '/about'
     },
   ]
@@ -130,7 +170,7 @@ function App() {
       <main className='main'>
         <Routes>
             <Route path='/' element={<Home {...{ Collections }}/>}/>
-            <Route path='/collection/all' element={<Shop {...{ Collections }}/>} />
+            <Route path='/collection/all' element={<Shop {...{ Collections, navData }}/>} />
         </Routes>
       </main>
       <aside className={`bag ${itemsInBag.length === 0 ? 'is-empty' : ''} ${navBagOn ? 'active' : ''}`}>

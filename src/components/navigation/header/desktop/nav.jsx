@@ -20,6 +20,13 @@ export const Nav = ({ navData, navUtil}) => {
         setClicked(idx);
     };
 
+    let mainNavData = [];
+    navData.map(({ use }, i) => {
+        {use.navigation &&
+            mainNavData.push(navData[i])
+        }
+    })
+
     return (
         <nav className='nav__container container'>
             <div className='nav__content hide__desktop'>
@@ -33,9 +40,9 @@ export const Nav = ({ navData, navUtil}) => {
             </div>
             <div className='nav__content hide__mobile'>
                 <ul className='nav__list'>
-                    { navData.map(({ label, href, children }, i) => {
+                    { mainNavData.map(({ label, use, href, children }, i) => {
                         return (
-                            <NavDesktop key={i} {...{ label, href, children }}/>
+                            <NavDesktop key={i} {...{ label, use, href, children }}/>
                         )
                     })}
                 </ul>
